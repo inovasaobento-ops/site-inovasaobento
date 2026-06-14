@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -13,6 +14,43 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const sourceCode = localFont({
+  src: [
+    {
+      path: "../../Fonts/SourceCodePro-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../Fonts/SourceCodePro-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../Fonts/SourceCodePro-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../Fonts/SourceCodePro-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../Fonts/SourceCodePro-ExtraBold.ttf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../../Fonts/SourceCodePro-Black.ttf",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-source-code",
   display: "swap",
 });
 
@@ -46,7 +84,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${outfit.variable} ${inter.variable}`}>
+    <html lang="pt-BR" className={`${outfit.variable} ${inter.variable} ${sourceCode.variable}`}>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="alternate icon" href="/favicon.png" type="image/png" />

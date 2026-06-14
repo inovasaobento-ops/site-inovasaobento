@@ -62,6 +62,7 @@ export default function Home() {
             
             {/* Left Column: Descriptive Text & Metadata (Illustrator layout) */}
             <div className={styles.heroInfo}>
+              <h1 className={styles.heroTitle}>Inova São Bento</h1>
               <p className={styles.heroDescriptionText}>
                 Laboratório vivo de inovação, patrimônio histórico, turismo sustentável 
                 e economia criativa. Unindo tecnologia e cultura para transformar 

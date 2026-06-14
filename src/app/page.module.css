@@ -156,11 +156,22 @@
   text-align: left;
 }
 
+.heroTitle {
+  font-family: var(--font-source-code), monospace;
+  font-size: 3.8rem;
+  font-weight: 900; /* Black */
+  color: var(--color-lime-green);
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
 .heroDescriptionText {
-  font-family: var(--font-body);
-  font-size: 2.2rem;
-  font-weight: 700;
-  line-height: 1.35;
+  font-family: var(--font-source-code), monospace;
+  font-size: 1.6rem;
+  font-weight: 400; /* Normal */
+  line-height: 1.5;
   color: var(--color-white);
   margin-bottom: 2.5rem;
   max-width: 650px;
