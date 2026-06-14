@@ -1,4 +1,9 @@
 /* Design System - Inova São Bento (Estilo Dark Dashboard "Sonar") */
+html, :root {
+  --font-heading: var(--font-source-code), Courier, monospace !important;
+  --font-body: var(--font-source-code), Courier, monospace !important;
+}
+
 :root {
   /* Paleta Escura Profunda (Dark Theme) */
   --color-bg-dark: #030f07;          /* Verde-escuro quase preto de fundo principal */
