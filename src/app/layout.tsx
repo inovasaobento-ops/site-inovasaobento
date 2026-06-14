@@ -48,7 +48,8 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${outfit.variable} ${inter.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.png" type="image/png" />
         {/* Leaflet CSS for maps */}
         <link
           rel="stylesheet"
