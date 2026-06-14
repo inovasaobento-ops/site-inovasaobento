@@ -1,26 +1,167 @@
-@import "tailwindcss";
-
+/* Design System - Inova São Bento */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Cores oficiais da Paleta */
+  --color-bege: #f4f4ea;
+  --color-taupe: #9fa090;
+  --color-pastel-green: #bdeeb8;
+  --color-light-green: #9ae193;
+  --color-sage-green: #69b577;
+  --color-lime-green: #8fc95d;
+  --color-forest-green: #0b4728;
+  --color-white: #ffffff;
+  
+  /* Cores funcionais adicionais */
+  --color-text-dark: #12291b;
+  --color-text-light: #f4f4ea;
+  --color-text-muted: #5e6f64;
+  --color-border: #d2d4c3;
+  
+  /* Sombras e Bordas */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --shadow-sm: 0 2px 8px rgba(11, 71, 40, 0.05);
+  --shadow-md: 0 8px 24px rgba(11, 71, 40, 0.08);
+  --shadow-lg: 0 16px 40px rgba(11, 71, 40, 0.12);
+  
+  /* Transições */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Reset de CSS */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bege);
+  color: var(--color-text-dark);
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Efeito Premium de Textura de Ruído (Grão) sobre todo o site */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/assets/bg-grain.png');
+  background-repeat: repeat;
+  opacity: 0.08; /* Textura sutil e elegante */
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Tipografia */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-forest-green);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Utilitários Globais */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-padding {
+  padding: 5rem 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3.5rem 0;
+  }
+}
+
+/* Estilização da barra de rolagem */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bege);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-taupe);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-forest-green);
+}
+
+/* Animações e Efeitos */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Estilos de customização para o Leaflet Map no tema do site */
+.leaflet-container {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-body), sans-serif !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--color-bege) !important;
+  color: var(--color-text-dark) !important;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--color-forest-green) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--color-forest-green) !important;
 }
