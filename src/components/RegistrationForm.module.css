@@ -1,25 +1,29 @@
 .section {
-  background-color: var(--color-white);
+  background-color: var(--color-bg-dark);
+  padding: 6rem 0;
 }
 
 .wrapper {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  background-color: var(--color-bege);
+  background-color: rgba(3, 15, 7, 0.7);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--glow-panel);
   border: 1px solid var(--color-border);
   overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 /* Invitation Panel (Left) */
 .invitationPanel {
-  background-color: var(--color-forest-green);
+  background-color: rgba(11, 71, 40, 0.15);
   padding: 4rem 3.5rem;
-  color: var(--color-white);
+  color: var(--color-text-dark);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .tagline {
@@ -35,13 +39,13 @@
 
 .inviteTitle {
   font-size: 2.5rem;
-  color: var(--color-white);
+  color: var(--color-text-dark);
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
 .inviteDescription {
-  color: var(--color-pastel-green);
+  color: var(--color-text-muted);
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 2.5rem;
@@ -58,12 +62,13 @@
   gap: 1rem;
   align-items: flex-start;
   font-size: 0.95rem;
-  color: var(--color-bege);
+  color: var(--color-text-muted);
 }
 
 .benefitIcon {
-  background-color: var(--color-lime-green);
-  color: var(--color-forest-green);
+  background-color: rgba(143, 201, 93, 0.15);
+  color: var(--color-lime-green);
+  border: 1px solid rgba(143, 201, 93, 0.2);
   width: 22px;
   height: 22px;
   border-radius: 50%;
@@ -74,10 +79,11 @@
   font-weight: bold;
   flex-shrink: 0;
   margin-top: 2px;
+  box-shadow: var(--glow-lime);
 }
 
 .benefitItem strong {
-  color: var(--color-white);
+  color: var(--color-text-dark);
   display: block;
   font-size: 1rem;
   margin-bottom: 0.1rem;
@@ -85,7 +91,7 @@
 
 /* Form Panel (Right) */
 .formPanel {
-  background-color: var(--color-white);
+  background-color: transparent;
   padding: 4rem 3.5rem;
   display: flex;
   flex-direction: column;
@@ -94,7 +100,7 @@
 
 .formTitle {
   font-size: 1.8rem;
-  color: var(--color-forest-green);
+  color: var(--color-text-dark);
   margin-bottom: 2rem;
   position: relative;
 }
@@ -119,7 +125,7 @@
   display: block;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--color-text-dark);
+  color: var(--color-text-muted);
   margin-bottom: 0.4rem;
 }
 
@@ -139,35 +145,44 @@
 .input, .select {
   width: 100%;
   padding: 0.8rem 1rem 0.8rem 2.8rem;
-  border: 1.5px solid var(--color-border);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  background-color: var(--color-bege);
+  background-color: rgba(255, 255, 255, 0.02);
   color: var(--color-text-dark);
   font-size: 0.95rem;
   outline: none;
   transition: var(--transition-fast);
 }
 
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
 .input:focus, .select:focus {
-  border-color: var(--color-forest-green);
-  background-color: var(--color-white);
-  box-shadow: 0 0 0 3px rgba(11, 71, 40, 0.1);
+  border-color: var(--color-lime-green);
+  background-color: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 0 10px rgba(143, 201, 93, 0.15);
 }
 
 .select {
   appearance: none;
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239fa090' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%238fa899' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 1.2rem;
 }
 
+.select option {
+  background-color: var(--color-bg-panel);
+  color: var(--color-text-dark);
+}
+
 /* Submit Button */
 .submitBtn {
   width: 100%;
-  background-color: var(--color-forest-green);
-  color: var(--color-white);
+  background-color: var(--color-lime-green);
+  color: var(--color-text-light);
   border: none;
   font-family: var(--font-heading);
   font-weight: 700;
@@ -179,28 +194,31 @@
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--glow-lime);
   transition: var(--transition-normal);
   margin-top: 2rem;
 }
 
 .submitBtn:hover:not(:disabled) {
-  background-color: #052613;
+  background-color: var(--color-pastel-green);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glow-lime-hover);
 }
 
 .submitBtn:disabled {
-  background-color: var(--color-taupe);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
   cursor: not-allowed;
-  opacity: 0.7;
+  opacity: 0.6;
+  box-shadow: none;
 }
 
 /* Spinner */
 .btnSpinner {
   width: 18px;
   height: 18px;
-  border: 2px solid var(--color-white);
+  border: 2px solid var(--color-text-light);
   border-top: 2px solid transparent;
   border-radius: 50%;
   animation: btnSpin 0.8s linear infinite;
@@ -213,9 +231,9 @@
 
 /* Error Box */
 .errorBox {
-  background-color: #ffebee;
-  border: 1px solid #ffcdd2;
-  color: #c62828;
+  background-color: rgba(198, 40, 40, 0.1);
+  border: 1px solid rgba(198, 40, 40, 0.25);
+  color: #ff8a80;
   padding: 0.8rem 1rem;
   border-radius: var(--radius-sm);
   margin-bottom: 1.5rem;
@@ -253,12 +271,12 @@
 .successIcon {
   color: var(--color-lime-green);
   margin-bottom: 1.5rem;
-  filter: drop-shadow(0 4px 10px rgba(143, 201, 93, 0.3));
+  filter: drop-shadow(0 0 12px rgba(143, 201, 93, 0.35));
 }
 
 .successTitle {
   font-size: 1.8rem;
-  color: var(--color-forest-green);
+  color: var(--color-text-dark);
   margin-bottom: 1rem;
 }
 
@@ -270,8 +288,8 @@
 
 .resetBtn {
   background-color: transparent;
-  border: 2px solid var(--color-forest-green);
-  color: var(--color-forest-green);
+  border: 1.5px solid var(--color-lime-green);
+  color: var(--color-lime-green);
   font-family: var(--font-heading);
   font-weight: 700;
   padding: 0.7rem 1.5rem;
@@ -281,8 +299,9 @@
 }
 
 .resetBtn:hover {
-  background-color: var(--color-forest-green);
-  color: var(--color-white);
+  background-color: var(--color-lime-green);
+  color: var(--color-text-light);
+  box-shadow: var(--glow-lime);
 }
 
 /* Responsive design */
@@ -293,6 +312,8 @@
   
   .invitationPanel {
     padding: 3.5rem 2.5rem;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
   
   .formPanel {

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styles from "./ScheduleSection.module.css";
-import { Clock, MapPin, Award, BookOpen, Music, Users, Compass, Eye } from "lucide-react";
+import { Clock, Award, BookOpen, Music, Compass, Eye, Download } from "lucide-react";
 
 interface ScheduleItem {
   time: string;
@@ -22,7 +22,7 @@ export default function ScheduleSection() {
       title: "Abertura Cultural + Apresentação do Maracatu Malunguinho",
       subtitle: "Recepção do público e apresentação do projeto",
       details: ["Credenciamento de participantes", "Boas-vindas da equipe organizadora", "Apresentação de boas-vindas do Maracatu Malunguinho"],
-      icon: <Music size={20} />,
+      icon: <Music size={18} />,
       category: "culture",
     },
     {
@@ -34,7 +34,7 @@ export default function ScheduleSection() {
         "Participação ativa da juventude local e moradores",
         "Apresentação especial do Grupo de Capoeira do Mestre Canela"
       ],
-      icon: <Award size={20} />,
+      icon: <Award size={18} />,
       category: "innovation",
     },
     {
@@ -46,14 +46,14 @@ export default function ScheduleSection() {
         "Conexão histórica entre Paulista e Abreu e Lima",
         "Explicação sobre a fauna local e a importância histórica das Ruínas de São Bento e Forno da Cal"
       ],
-      icon: <Compass size={20} />,
+      icon: <Compass size={18} />,
       category: "ecology",
     },
     {
       time: "12:00 – 13:00",
       title: "Intervalo / Pausa para Almoço",
       details: ["Momento de descanso", "Conexão livre entre participantes"],
-      icon: <Clock size={20} />,
+      icon: <Clock size={18} />,
       category: "lunch",
     },
     {
@@ -61,7 +61,7 @@ export default function ScheduleSection() {
       title: "Apresentação Cultural Afoxé",
       subtitle: "Conexão com as raízes e herança cultural",
       details: ["Interação rítmica com o público", "Celebração das manifestações tradicionais afro-brasileiras"],
-      icon: <Music size={20} />,
+      icon: <Music size={18} />,
       category: "culture",
     },
     {
@@ -69,7 +69,7 @@ export default function ScheduleSection() {
       title: "Intervenção Visual ao Vivo",
       subtitle: "Barbara Andrade",
       details: ["Produção artística ao vivo", "Criação de obra visual dialogando com a história e a paisagem local"],
-      icon: <BookOpen size={20} />,
+      icon: <BookOpen size={18} />,
       category: "art",
     },
     {
@@ -77,7 +77,7 @@ export default function ScheduleSection() {
       title: "Gravação Audiovisual e DJ Set Cultural",
       subtitle: "Barreto Selector",
       details: ["Apresentação musical e curadoria sonora regional", "Gravação oficial de set audiovisual para o Youtube"],
-      icon: <Music size={20} />,
+      icon: <Music size={18} />,
       category: "music",
     },
     {
@@ -85,14 +85,10 @@ export default function ScheduleSection() {
       title: "Projeção Audiovisual + Encerramento Cultural",
       subtitle: "Registro coletivo e falas finais",
       details: ["Exibição de materiais capturados durante o dia", "Reflexões coletivas e falas institucionais de encerramento"],
-      icon: <Eye size={20} />,
+      icon: <Eye size={18} />,
       category: "culture",
     },
   ];
-
-  const filteredSchedule = activeCategory === "all" 
-    ? scheduleData 
-    : scheduleData.filter(item => item.category === activeCategory);
 
   const categories = [
     { id: "all", name: "Todos" },
@@ -128,25 +124,27 @@ export default function ScheduleSection() {
 
   return (
     <div className={styles.section} id="programacao">
+      {/* Subtle radial glow under the timeline */}
+      <div className={styles.sectionGlow}></div>
+      
       <div className="container">
         <div className={styles.header}>
           <span className={styles.tagline}>CRONOGRAMA DO EVENTO</span>
-          <h2 className={styles.title}>Atividades do Laboratório Vivo</h2>
+          <h2 className={styles.title}>Atividades do Laboratório</h2>
           <p className={styles.description}>
             Programação completa para o dia do evento nas Ruínas de São Bento e Forno da Cal. 
-            Você pode se inscrever nas atividades no formulário abaixo.
+            Participe, aprenda e colabore.
           </p>
         </div>
 
-        {/* Filters */}
+        {/* Filters in Dashboard style */}
         <div className={styles.filters}>
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => {
-                // Group art & music filter
                 if (cat.id === "art") {
-                  setActiveCategory(activeCategory === "art" ? "all" : "art_music");
+                  setActiveCategory(activeCategory === "art_music" ? "all" : "art_music");
                 } else {
                   setActiveCategory(cat.id);
                 }
@@ -162,9 +160,9 @@ export default function ScheduleSection() {
           ))}
         </div>
 
-        {/* Timeline */}
-        <div className={styles.timeline}>
-          <div className={styles.timelineLine}></div>
+        {/* Linear Timeline (Dashboard Style) */}
+        <div className={styles.timelineList}>
+          <div className={styles.verticalBar}></div>
           
           {scheduleData
             .filter(item => {
@@ -175,39 +173,47 @@ export default function ScheduleSection() {
             .map((item, index) => (
               <div 
                 key={index} 
-                className={`${styles.timelineItem} ${index % 2 === 0 ? styles.leftSide : styles.rightSide} animate-slide-up`}
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className={styles.timelineRow}
+                style={{ animationDelay: `${index * 0.08}s` }}
               >
-                <div className={styles.timelineIcon}>
-                  {item.icon}
+                {/* Left side: Time indicator */}
+                <div className={styles.timeCol}>
+                  <Clock size={12} className={styles.clockIcon} />
+                  <span className={styles.timeText}>{item.time}</span>
                 </div>
-                
-                <div className={styles.timelineContent}>
-                  <div className={styles.timeWrapper}>
-                    <Clock size={14} className={styles.clockIcon} />
-                    <span className={styles.timeText}>{item.time}</span>
-                  </div>
 
-                  <span className={`${styles.badge} ${getCategoryColor(item.category)}`}>
-                    {getCategoryLabel(item.category)}
-                  </span>
-                  
-                  <h3 className={styles.itemTitle}>{item.title}</h3>
-                  
-                  {item.subtitle && <h4 className={styles.itemSubtitle}>{item.subtitle}</h4>}
-                  
-                  <ul className={styles.detailsList}>
-                    {item.details.map((detail, idx) => (
-                      <li key={idx} className={styles.detailItem}>{detail}</li>
-                    ))}
-                  </ul>
+                {/* Center: Glowing bullet */}
+                <div className={styles.nodeCol}>
+                  <div className={`${styles.nodeDot} ${getCategoryColor(item.category)}`}>
+                    {item.icon}
+                  </div>
+                </div>
+
+                {/* Right side: Detailed card */}
+                <div className={styles.contentCol}>
+                  <div className={styles.card}>
+                    <div className={styles.cardHeader}>
+                      <span className={`${styles.badge} ${getCategoryColor(item.category)}`}>
+                        {getCategoryLabel(item.category)}
+                      </span>
+                      <h3 className={styles.itemTitle}>{item.title}</h3>
+                    </div>
+                    
+                    {item.subtitle && <h4 className={styles.itemSubtitle}>{item.subtitle}</h4>}
+                    
+                    <ul className={styles.detailsList}>
+                      {item.details.map((detail, idx) => (
+                        <li key={idx} className={styles.detailItem}>{detail}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             ))
           }
         </div>
 
-        {/* PDF Download Button */}
+        {/* PDF Download Button in modern outline */}
         <div className={styles.downloadWrapper}>
           <a 
             href="/assets/cronograma.pdf" 
@@ -215,7 +221,7 @@ export default function ScheduleSection() {
             rel="noopener noreferrer" 
             className={styles.downloadBtn}
           >
-            Visualizar PDF Oficial do Cronograma
+            <Download size={16} /> Baixar PDF do Cronograma
           </a>
         </div>
       </div>

@@ -16,7 +16,6 @@ export default function RegistrationForm() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const formatPhone = (value: string) => {
-    // Basic Brazilian phone masking: (99) 99999-9999
     const digits = value.replace(/\D/g, "");
     if (digits.length <= 2) return digits;
     if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
@@ -46,12 +45,10 @@ export default function RegistrationForm() {
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
       if (!isConfigured) {
-        // Fallback simulate submission for preview/mock setup
         console.log("Mocking registration save:", { fullname, email, phone, activity });
-        await new Promise((resolve) => setTimeout(resolve, 1200)); // Simulate delay
+        await new Promise((resolve) => setTimeout(resolve, 1200)); 
         setStatus("success");
       } else {
-        // Actual Supabase insert
         const { error } = await supabase
           .from("registrations")
           .insert([
@@ -67,7 +64,6 @@ export default function RegistrationForm() {
         setStatus("success");
       }
 
-      // Reset form fields on success
       setFullname("");
       setEmail("");
       setPhone("");
@@ -88,46 +84,46 @@ export default function RegistrationForm() {
       <div className="container">
         <div className={styles.wrapper}>
           
-          {/* Left panel: Invitation details */}
+          {/* Left panel: Invitation details (Dashboard Dark Style) */}
           <div className={styles.invitationPanel}>
-            <span className={styles.tagline}>INSCREVA-SE JÁ</span>
+            <span className={styles.tagline}>VAGAS LIMITADAS</span>
             <h2 className={styles.inviteTitle}>Faça Parte Desta Transformação</h2>
             <p className={styles.inviteDescription}>
-              As vagas são limitadas! Participe das atividades do laboratório vivo de inovação, 
-              sustentabilidade e cultura e receba certificado de participação ao final do evento.
+              Participe das atividades do laboratório vivo e receba certificado oficial de participação 
+              emitido pela epec (Escola Pernambucana de Economia Criativa).
             </p>
             
             <div className={styles.benefitList}>
               <div className={styles.benefitItem}>
                 <div className={styles.benefitIcon}>✓</div>
                 <div>
-                  <strong>IdeaThon Premiado:</strong> Desenvolva ideias inovadoras com mentoria especializada.
+                  <strong>IdeaThon de Projetos:</strong> Desenvolva ideias tecnológicas e culturais de impacto.
                 </div>
               </div>
               <div className={styles.benefitItem}>
                 <div className={styles.benefitIcon}>✓</div>
                 <div>
-                  <strong>Trilha Guiada Gratuita:</strong> Conheça as riquezas e a biodiversidade local.
+                  <strong>Trilha Ecológico-Cultural:</strong> Reconhecimento de biodiversidade e marcos históricos locais.
                 </div>
               </div>
               <div className={styles.benefitItem}>
                 <div className={styles.benefitIcon}>✓</div>
                 <div>
-                  <strong>Certificação de Horas:</strong> Ganhe certificado emitido pelo Laboratório Inova São Bento.
+                  <strong>Certificação Oficial epec:</strong> Comprovação de participação para seu portfólio de atividades.
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right panel: Registration Form */}
+          {/* Right panel: Registration Form (frosted / glow styling) */}
           <div className={styles.formPanel}>
             {status === "success" ? (
               <div className={styles.successBox}>
                 <CheckCircle2 className={styles.successIcon} size={56} />
                 <h3 className={styles.successTitle}>Inscrição Confirmada!</h3>
                 <p className={styles.successText}>
-                  Sua inscrição foi registrada com sucesso. Preparamos uma experiência incrível 
-                  para você no Inova São Bento! Nos vemos nas Ruínas.
+                  Seu registro foi concluído com sucesso. Preparamos um dia incrível de inovação, 
+                  cultura e história nas Ruínas!
                 </p>
                 <button 
                   onClick={() => setStatus("idle")}

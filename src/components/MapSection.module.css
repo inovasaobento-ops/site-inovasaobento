@@ -1,7 +1,9 @@
 .section {
-  background-color: var(--color-bege);
+  background-color: var(--color-bg-dark);
   position: relative;
   overflow: hidden;
+  padding: 6rem 0;
+  border-bottom: 1px solid rgba(143, 201, 93, 0.08);
 }
 
 /* Watermark Background */
@@ -15,7 +17,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom right;
-  opacity: 0.04;
+  opacity: 0.03; /* Very subtle in dark mode */
   pointer-events: none;
   z-index: 0;
 }
@@ -33,7 +35,7 @@
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: var(--color-sage-green);
+  color: var(--color-lime-green);
   text-transform: uppercase;
   display: block;
   margin-bottom: 0.5rem;
@@ -42,6 +44,7 @@
 .title {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  color: var(--color-text-dark);
 }
 
 .description {
@@ -63,11 +66,13 @@
   gap: 1.5rem;
 }
 
-/* Card Styling */
+/* Card Styling (Glassmorphism Dashboard style) */
 .card {
-  background-color: var(--color-white);
+  background-color: var(--color-bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--glow-panel);
   border: 1px solid var(--color-border);
   overflow: hidden;
   transition: var(--transition-normal);
@@ -75,8 +80,9 @@
 
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-light-green);
+  box-shadow: 0 8px 30px rgba(143, 201, 93, 0.08);
+  border-color: rgba(143, 201, 93, 0.25);
+  background-color: var(--color-bg-card-hover);
 }
 
 .iconHeader {
@@ -84,22 +90,27 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1.2rem;
-  color: var(--color-white);
+  color: var(--color-text-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .startIconBg {
-  background-color: var(--color-lime-green);
+  background-color: rgba(143, 201, 93, 0.1);
+  color: var(--color-lime-green);
+  border-bottom: 1px solid rgba(143, 201, 93, 0.15);
 }
 
 .endIconBg {
-  background-color: var(--color-forest-green);
+  background-color: rgba(11, 71, 40, 0.2);
+  color: var(--color-pastel-green);
+  border-bottom: 1px solid rgba(105, 181, 119, 0.15);
 }
 
 .iconHeader h3 {
-  color: var(--color-white);
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
   margin: 0;
+  font-family: var(--font-heading);
 }
 
 .cardBody {
@@ -110,7 +121,7 @@
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.15rem;
-  color: var(--color-forest-green);
+  color: var(--color-text-dark);
   margin-bottom: 0.3rem;
 }
 
@@ -118,6 +129,7 @@
   font-size: 0.9rem;
   color: var(--color-text-muted);
   margin-bottom: 0.8rem;
+  font-family: monospace;
 }
 
 .helperText {
@@ -127,7 +139,7 @@
   margin-bottom: 1.2rem;
 }
 
-/* Buttons */
+/* Buttons (Glow Outlines) */
 .btnGroup {
   display: flex;
   gap: 0.5rem;
@@ -135,7 +147,7 @@
 
 .mapBtn, .wazeBtn {
   flex: 1;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
@@ -149,40 +161,42 @@
 }
 
 .mapBtn {
-  background-color: var(--color-forest-green);
-  color: var(--color-white);
-  border: 1px solid var(--color-forest-green);
+  background-color: var(--color-lime-green);
+  color: var(--color-text-light);
+  border: 1px solid var(--color-lime-green);
+  box-shadow: var(--glow-lime);
 }
 
 .mapBtn:hover {
-  background-color: #052613;
-  border-color: #052613;
+  background-color: var(--color-pastel-green);
+  border-color: var(--color-pastel-green);
+  box-shadow: var(--glow-lime-hover);
 }
 
 .wazeBtn {
   background-color: transparent;
-  color: var(--color-forest-green);
-  border: 1px solid var(--color-forest-green);
+  color: var(--color-lime-green);
+  border: 1.5px solid var(--color-lime-green);
 }
 
 .wazeBtn:hover {
-  background-color: var(--color-bege);
+  background-color: rgba(143, 201, 93, 0.08);
 }
 
-/* Trail Indicator */
+/* Trail Indicator (Green Neon Bar) */
 .trailIndicator {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background-color: var(--color-pastel-green);
-  border: 1px solid var(--color-sage-green);
+  background-color: rgba(143, 201, 93, 0.06);
+  border: 1px solid rgba(143, 201, 93, 0.2);
   border-radius: var(--radius-md);
   padding: 1rem 1.2rem;
-  color: var(--color-forest-green);
+  color: var(--color-lime-green);
 }
 
 .compassIcon {
-  color: var(--color-forest-green);
+  color: var(--color-lime-green);
   flex-shrink: 0;
   animation: rotateCompass 8s linear infinite;
 }
@@ -200,11 +214,13 @@
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 0.1rem;
+  color: var(--color-text-dark);
 }
 
 .trailIndicator p {
   font-size: 0.85rem;
   margin: 0;
+  color: var(--color-text-muted);
 }
 
 /* Map Container */
@@ -213,7 +229,8 @@
   min-height: 450px;
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glow-panel);
+  border: 1px solid var(--color-border);
 }
 
 .mapCanvas {
@@ -230,21 +247,21 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--color-bege);
+  background-color: var(--color-bg-panel);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  color: var(--color-forest-green);
+  color: var(--color-lime-green);
   font-weight: 500;
 }
 
 .spinner {
   width: 40px;
   height: 40px;
-  border: 4px solid var(--color-border);
-  border-top: 4px solid var(--color-forest-green);
+  border: 4px solid rgba(255, 255, 255, 0.05);
+  border-top: 4px solid var(--color-lime-green);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -254,7 +271,7 @@
   100% { transform: rotate(360deg); }
 }
 
-/* CUSTOM LEAFLET MARKERS (Injected via MapComponent JS) */
+/* CUSTOM LEAFLET MARKERS (Neon Glow - Dark Theme) */
 .customMarker {
   background: transparent !important;
   border: none !important;
@@ -269,16 +286,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  border: 2px solid var(--color-white);
+  border: 2px solid #030f07;
   z-index: 5;
 }
 
 .markerLabel {
   transform: rotate(45deg);
-  color: var(--color-white);
+  color: var(--color-text-light);
   font-family: var(--font-heading);
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -313,7 +329,7 @@
 .mapPopup strong {
   font-family: var(--font-heading);
   font-size: 0.95rem;
-  color: var(--color-forest-green);
+  color: var(--color-lime-green);
   display: block;
   margin-bottom: 0.2rem;
 }

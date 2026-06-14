@@ -30,19 +30,19 @@ export default function MapComponent() {
         scrollWheelZoom: false,
       });
 
-      // Add clean, modern tile layer (Positron by CartoDB is super clean/light)
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+      // CartoDB Dark Matter tile layer for a beautiful dark dashboard theme
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: "abcd",
         maxZoom: 20,
       }).addTo(map);
 
-      // Custom marker style using L.divIcon for modern aesthetics (no broken default pins!)
+      // Custom divIcon markers styled with neon glows for dark mode
       const createCustomIcon = (label: string, color: string) => {
         return L.divIcon({
           className: styles.customMarker,
           html: `
-            <div style="background-color: ${color};" class="${styles.markerPin}">
+            <div style="background-color: ${color}; border-color: #030f07; box-shadow: 0 0 15px ${color};" class="${styles.markerPin}">
               <span class="${styles.markerLabel}">${label}</span>
             </div>
             <div style="border-top-color: ${color};" class="${styles.markerArrow}"></div>
@@ -54,8 +54,8 @@ export default function MapComponent() {
         });
       };
 
-      const startIcon = createCustomIcon("Início", "#8fc95d"); // Lime green for start
-      const endIcon = createCustomIcon("Fim", "#0b4728");     // Forest green for ruins/end
+      const startIcon = createCustomIcon("Início", "#8fc95d"); // Neon Green
+      const endIcon = createCustomIcon("Ruínas", "#9ae193");    // Soft Light Green
 
       // Add Start Marker
       L.marker(startCoords, { icon: startIcon })
@@ -75,29 +75,36 @@ export default function MapComponent() {
           <div class="${styles.mapPopup}">
             <strong>Ponto de Chegada</strong><br/>
             <span>Ruínas de São Bento & Forno da Cal, Abreu e Lima - PE</span><br/>
-            <small>Local Histórico do Século XVII</small>
+            <small>Sítio Histórico - Século XVII</small>
           </div>
         `);
 
-      // Draw a polyline representing the trail path
-      // Creating a curved/organic-looking path or a simple line.
-      // Since it's a walking path, a slightly dashed path looks excellent!
+      // Draw path with dual polylines to create a neon glowing line effect!
       const pathPoints: [number, number][] = [
         startCoords,
-        [-7.9029, -34.8665], // Intermediate point representing road/trail curve
-        [-7.9024, -34.8695], // Intermediate point
+        [-7.9029, -34.8665], 
+        [-7.9024, -34.8695], 
         endCoords,
       ];
 
+      // Outer glow line
       L.polyline(pathPoints, {
-        color: "#69b577",
-        weight: 4,
-        dashArray: "8, 8",
-        opacity: 0.8,
+        color: "#8fc95d",
+        weight: 8,
+        opacity: 0.2,
         lineJoin: "round",
       }).addTo(map);
 
-      // Adjust map view to fit both markers
+      // Inner dashed line
+      L.polyline(pathPoints, {
+        color: "#8fc95d",
+        weight: 3.5,
+        dashArray: "6, 6",
+        opacity: 0.9,
+        lineJoin: "round",
+      }).addTo(map);
+
+      // Adjust map view
       const group = L.featureGroup([
         L.marker(startCoords),
         L.marker(endCoords)
