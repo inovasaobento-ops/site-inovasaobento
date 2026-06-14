@@ -5,27 +5,33 @@
   background-color: var(--color-bg-dark);
 }
 
-/* 1. Header & Navigation (Glassmorphism Escuro) */
+/* 1. Header & Navigation (Efeito Glassmorphism iOS Suspenso) */
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(3, 15, 7, 0.75); /* Fundo escuro transparente */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(143, 201, 93, 0.12); /* Borda neon sutil */
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 3rem);
+  max-width: 1200px;
+  height: 76px;
+  background-color: rgba(244, 244, 234, 0.90); /* Bege oficial com 90% opacidade */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 30px; /* Extremamente arredondado como no mockup */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   z-index: 1000;
-  height: 80px;
   display: flex;
   align-items: center;
   transition: var(--transition-normal);
+  padding: 0 2.5rem;
 }
 
 .navWrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .logoWrapper {
@@ -40,7 +46,6 @@
 
 .logoImg:hover {
   transform: scale(1.02);
-  filter: drop-shadow(0 0 8px rgba(143, 201, 93, 0.3));
 }
 
 .nav {
@@ -51,8 +56,8 @@
 .navLink {
   font-family: var(--font-heading);
   font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
+  font-weight: 700;
+  color: var(--color-forest-green); /* Verde floresta escuro para contraste */
   position: relative;
   padding: 0.25rem 0;
 }
@@ -64,12 +69,12 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--color-lime-green);
+  background-color: var(--color-lime-green); /* Sublinhado verde-limão vibrante */
   transition: var(--transition-fast);
 }
 
 .navLink:hover {
-  color: var(--color-text-dark);
+  color: var(--color-forest-green);
 }
 
 .navLink:hover::after {
@@ -77,188 +82,161 @@
 }
 
 .navActionBtn {
-  background-color: var(--color-lime-green);
-  color: var(--color-text-light);
+  background-color: var(--color-lime-green); /* Verde limão vibrante */
+  color: var(--color-forest-green); /* Verde floresta escuro para alto contraste como no mockup */
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 0.9rem;
-  padding: 0.6rem 1.4rem;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--glow-lime);
+  padding: 0.6rem 1.6rem;
+  border-radius: 30px; /* Arredondado estilo pílula */
   transition: var(--transition-normal);
+  border: 1px solid rgba(143, 201, 93, 0.3);
 }
 
 .navActionBtn:hover {
   background-color: var(--color-pastel-green);
+  color: var(--color-forest-green);
   transform: translateY(-2px);
-  box-shadow: var(--glow-lime-hover);
+  box-shadow: 0 4px 15px rgba(143, 201, 93, 0.3);
 }
 
-/* 2. Hero Section (Sonar Aesthetic) */
+/* 2. Hero Section (Video Background & Layout Illustrator) */
 .heroSection {
-  background-color: var(--color-bg-dark);
-  padding-top: 180px;
+  min-height: 100vh;
+  padding-top: 160px;
   padding-bottom: 80px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg-dark);
 }
 
-/* Glow Radial Lights */
-.glowSpot1 {
+.videoBackground {
   position: absolute;
-  top: -10%;
-  left: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(143, 201, 93, 0.08) 0%, rgba(143, 201, 93, 0) 70%);
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: 0;
+  pointer-events: none;
 }
 
-.glowSpot2 {
+.videoOverlay {
   position: absolute;
-  bottom: 0;
-  right: -5%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(105, 181, 119, 0.06) 0%, rgba(105, 181, 119, 0) 70%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(3, 15, 7, 0.55) 0%,
+    rgba(3, 15, 7, 0.70) 100%
+  );
+  z-index: 1;
   pointer-events: none;
-  z-index: 0;
 }
 
 .heroLayout {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1.3fr 0.9fr;
   gap: 4rem;
   align-items: center;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
-.heroTagline {
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
-  font-weight: 800;
-  letter-spacing: 3px;
-  color: var(--color-lime-green);
-  display: block;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 10px rgba(143, 201, 93, 0.2);
-}
-
-.heroTitle {
-  font-size: 4rem;
-  line-height: 1.1;
-  color: var(--color-text-dark);
-  margin-bottom: 1.5rem;
-}
-
-.heroAccent {
-  color: var(--color-lime-green);
-  text-shadow: 0 0 20px rgba(143, 201, 93, 0.3);
-}
-
-.heroSubtitle {
-  font-size: 1.25rem;
-  color: var(--color-text-muted);
-  line-height: 1.6;
-  margin-bottom: 2.5rem;
-}
-
-.heroMeta {
+/* Left side content (diagram styling) */
+.heroInfo {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  margin-bottom: 2.5rem;
-  border-left: 2px solid var(--color-lime-green);
-  padding-left: 1.2rem;
+  align-items: flex-start;
+  text-align: left;
 }
 
-.metaItem {
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-}
-
-.metaItem strong {
-  color: var(--color-text-dark);
-  font-family: var(--font-heading);
+.heroDescriptionText {
+  font-family: var(--font-body);
+  font-size: 2.2rem;
   font-weight: 700;
-  margin-right: 0.5rem;
+  line-height: 1.35;
+  color: var(--color-white);
+  margin-bottom: 2.5rem;
+  max-width: 650px;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.epecInlineLink {
-  color: var(--color-lime-green);
-  text-decoration: underline;
-  text-decoration-color: rgba(143, 201, 93, 0.4);
+.heroMetadataBlock {
+  border-left: 2px solid var(--color-white);
+  padding-left: 1.2rem;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.epecInlineLink:hover {
-  color: var(--color-pastel-green);
-  text-shadow: 0 0 8px rgba(143, 201, 93, 0.5);
+.metaLine {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .heroBtnGroup {
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
 .heroBtnPrimary {
   background-color: var(--color-lime-green);
   color: var(--color-text-light);
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 800;
   padding: 1rem 2rem;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--glow-lime);
+  border-radius: 30px; /* Pílula */
+  box-shadow: 0 4px 15px rgba(143, 201, 93, 0.2);
   transition: var(--transition-normal);
 }
 
 .heroBtnPrimary:hover {
   background-color: var(--color-pastel-green);
   transform: translateY(-3px);
-  box-shadow: var(--glow-lime-hover);
+  box-shadow: 0 6px 20px rgba(143, 201, 93, 0.4);
 }
 
 .heroBtnSecondary {
-  background-color: transparent;
-  color: var(--color-text-dark);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: var(--color-forest-green);
+  color: var(--color-white);
   font-family: var(--font-heading);
-  font-weight: 700;
-  padding: 1rem 2rem;
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  font-weight: 800;
+  padding: 1rem 2.2rem;
+  border-radius: 30px; /* Pílula */
   transition: var(--transition-normal);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(11, 71, 40, 0.3);
 }
 
 .heroBtnSecondary:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-color: var(--color-lime-green);
+  background-color: #052613;
   transform: translateY(-3px);
-  box-shadow: 0 0 15px rgba(143, 201, 93, 0.1);
+  box-shadow: 0 6px 20px rgba(11, 71, 40, 0.5);
 }
 
 .heroVisual {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 
 .logoVerticalContainer {
-  background-color: rgba(255, 255, 255, 0.02);
-  border-radius: var(--radius-lg);
-  padding: 3rem;
-  box-shadow: var(--glow-panel);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  animation: float 6s ease-in-out infinite;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  backdrop-filter: blur(10px);
+  animation: float 6s ease-in-out infinite;
 }
 
 .logoVerticalGlow {
@@ -763,7 +741,11 @@
 
 @media (max-width: 768px) {
   .header {
-    height: 70px;
+    height: 64px;
+    width: calc(100% - 1.5rem);
+    top: 0.75rem;
+    padding: 0 1.2rem;
+    border-radius: 20px;
   }
   
   .nav {

@@ -10,68 +10,70 @@ export default function Home() {
   return (
     <div className={styles.appWrapper}>
       
-      {/* 1. Header / Navbar (Efeito Glassmorphism) */}
+      {/* 1. Header / Navbar (Efeito Glassmorphism iOS Suspenso) */}
       <header className={styles.header}>
-        <div className="container">
-          <div className={styles.navWrapper}>
-            <div className={styles.logoWrapper}>
-              <a href="#">
-                <Image 
-                  src="/assets/logo-horizontal.svg" 
-                  alt="Inova São Bento Logo" 
-                  width={180} 
-                  height={50}
-                  className={styles.logoImg}
-                  priority
-                />
-              </a>
-            </div>
-            
-            <nav className={styles.nav}>
-              <a href="#sobre" className={styles.navLink}>Sobre</a>
-              <a href="#dashboard" className={styles.navLink}>Telemetria</a>
-              <a href="#pilares" className={styles.navLink}>Pilares</a>
-              <a href="#programacao" className={styles.navLink}>Programação</a>
-              <a href="#localizacao" className={styles.navLink}>Como Chegar</a>
-            </nav>
-            
-            <a href="#inscricao" className={styles.navActionBtn}>
-              Fazer Inscrição
+        <div className={styles.navWrapper}>
+          <div className={styles.logoWrapper}>
+            <a href="#">
+              <Image 
+                src="/assets/logo-horizontal.svg" 
+                alt="Inova São Bento Logo" 
+                width={200} 
+                height={50}
+                className={styles.logoImg}
+                priority
+              />
             </a>
           </div>
+          
+          <nav className={styles.nav}>
+            <a href="#sobre" className={styles.navLink}>Sobre</a>
+            <a href="#dashboard" className={styles.navLink}>Telemetria</a>
+            <a href="#pilares" className={styles.navLink}>Pilares</a>
+            <a href="#programacao" className={styles.navLink}>Programação</a>
+            <a href="#localizacao" className={styles.navLink}>Como Chegar</a>
+          </nav>
+          
+          <a href="#inscricao" className={styles.navActionBtn}>
+            Increver-se
+          </a>
         </div>
       </header>
 
-      {/* 2. Hero Section (Estilo Sonar - Neon Glows) */}
+      {/* 2. Hero Section (Video Background) */}
       <section className={styles.heroSection}>
-        {/* Glow lights in background */}
-        <div className={styles.glowSpot1}></div>
-        <div className={styles.glowSpot2}></div>
+        {/* Background Video in Loop */}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className={styles.videoBackground}
+        >
+          <source src="/assets/video-bg.mp4" type="video/mp4" />
+          Seu navegador não suporta a tag de vídeo.
+        </video>
+        
+        {/* Overlay to darken video slightly and ensure contrast */}
+        <div className={styles.videoOverlay}></div>
         
         <div className="container">
           <div className={styles.heroLayout}>
             
-            {/* Left Column: Title & Text */}
+            {/* Left Column: Descriptive Text & Metadata (Illustrator layout) */}
             <div className={styles.heroInfo}>
-              <span className={styles.heroTagline}>LITORAL NORTE DE PERNAMBUCO</span>
-              <h1 className={styles.heroTitle}>
-                Inova <span className={styles.heroAccent}>São Bento</span>
-              </h1>
-              <p className={styles.heroSubtitle}>
+              <p className={styles.heroDescriptionText}>
                 Laboratório vivo de inovação, patrimônio histórico, turismo sustentável 
-                e economia criativa. Unindo tecnologia e história para transformar a comunidade.
+                e economia criativa. Unindo tecnologia e cultura para transformar 
+                a comunidade.
               </p>
               
-              <div className={styles.heroMeta}>
-                <div className={styles.metaItem}>
-                  <strong>Realização:</strong>
-                  <a href="https://epec.art.br" target="_blank" rel="noopener noreferrer" className={styles.epecInlineLink}>
-                    epec (Escola Pernambucana de Economia Criativa)
-                  </a>
+              <div className={styles.heroMetadataBlock}>
+                <div className={styles.metaLine}>
+                  Realização Epec - Escola Pernambucana de Economia Criativa
                 </div>
-                <div className={styles.metaItem}>
-                  <strong>Sítio Histórico:</strong>
-                  <span>Ruínas de São Bento, Abreu e Lima - PE</span>
+                <div className={styles.metaLine}>
+                  Sítio Histórico: Ruínas de São Bento, Abreu e Lima - PE
                 </div>
               </div>
 
@@ -80,20 +82,19 @@ export default function Home() {
                   Inscrever-se Grátis
                 </a>
                 <a href="#sobre" className={styles.heroBtnSecondary}>
-                  Conhecer Projeto <ArrowDown size={16} />
+                  Conhecer o Projeto
                 </a>
               </div>
             </div>
 
-            {/* Right Column: Vertical Logo Floating with Glow */}
+            {/* Right Column: Vertical Logo */}
             <div className={styles.heroVisual}>
               <div className={styles.logoVerticalContainer}>
-                <div className={styles.logoVerticalGlow}></div>
                 <Image 
                   src="/assets/logo-vertical.svg" 
                   alt="Inova São Bento Logo Vertical" 
-                  width={250} 
-                  height={250}
+                  width={280} 
+                  height={280}
                   className={styles.logoVertical}
                   priority
                 />
