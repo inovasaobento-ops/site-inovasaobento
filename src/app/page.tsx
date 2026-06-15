@@ -129,7 +129,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. About Section (Sobre) & Dashboard Integration */}
+      {/* 3. Schedule Section (Programação) - Segunda Seção do Site */}
+      <ScheduleSection />
+
+      {/* 4. About Section (Sobre) & Dashboard Integration */}
       <section id="sobre" className={styles.aboutSection}>
         <div className="container">
           <div className={styles.aboutLayout}>
@@ -318,9 +321,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* 5. Schedule Section (Timeline) */}
-      <ScheduleSection />
 
       {/* 6. Location Section (Map) */}
       <MapSection />
