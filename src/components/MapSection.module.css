@@ -296,50 +296,59 @@
   100% { transform: rotate(360deg); }
 }
 
-/* CUSTOM LEAFLET MARKERS (Neon Glow - Dark Theme) */
+/* CUSTOM LEAFLET MARKERS (Illustrated Botanical Theme) */
 .customMarker {
   background: transparent !important;
   border: none !important;
 }
 
-.markerPin {
-  width: 36px;
-  height: 36px;
-  border-radius: 50% 50% 50% 0;
-  position: absolute;
-  transform: rotate(-45deg);
+.markerCircle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #030f07;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 5;
+  transition: var(--transition-fast);
+}
+
+.markerCircle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 
 .markerLabel {
-  transform: rotate(45deg);
-  color: var(--color-text-light);
   font-family: var(--font-heading);
-  font-size: 8px;
-  font-weight: 800;
+  font-size: 8.5px;
+  font-weight: 900;
   text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.5px;
 }
 
 .markerPulse {
-  width: 24px;
-  height: 24px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   position: absolute;
-  top: 6px;
-  left: 6px;
+  top: 0;
+  left: 0;
   z-index: 1;
-  opacity: 0.6;
-  animation: markerPulseAnim 1.8s ease-out infinite;
+  opacity: 0.4;
+  animation: markerPulseAnim 2s ease-out infinite;
+  pointer-events: none;
 }
 
 @keyframes markerPulseAnim {
   0% {
-    transform: scale(0.6);
-    opacity: 0.8;
+    transform: scale(0.8);
+    opacity: 0.6;
   }
   100% {
     transform: scale(2.2);
@@ -371,6 +380,107 @@
   margin-top: 0.3rem;
 }
 
+/* Custom illustrated forest-green theme for map tiles */
+.greenMapTiles {
+  filter: grayscale(100%) sepia(100%) hue-rotate(90deg) saturate(180%) brightness(55%) contrast(125%);
+}
+
+/* Custom Map Legend overlay matching the reference design */
+.mapLegend {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(6, 21, 12, 0.92);
+  border: 1.5px solid var(--color-forest-green);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  z-index: 1000; /* Overlays Leaflet elements */
+  pointer-events: auto; /* Restores mouse clicks */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  width: 210px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.legendHeader {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--color-pastel-green);
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(143, 201, 93, 0.15);
+  padding-bottom: 0.4rem;
+}
+
+.legendBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-bege);
+  font-family: var(--font-heading);
+}
+
+.legendColor {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.legendStart {
+  background-color: var(--color-bege);
+  border: 2px solid var(--color-forest-green);
+}
+
+.legendEnd {
+  background-color: var(--color-forest-green);
+  border: 2px solid var(--color-bege);
+}
+
+.legendPath {
+  width: 24px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #d97706 0%, #ffffff 50%, #d97706 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Custom Compass Rose overlay matching the reference design */
+.mapCompass {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+  background-color: rgba(6, 21, 12, 0.75);
+  border-radius: 50%;
+  padding: 6px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(244, 244, 234, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compassSvg {
+  width: 100%;
+  height: 100%;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
   .layout {
@@ -389,5 +499,21 @@
 @media (max-width: 768px) {
   .title {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .mapLegend {
+    bottom: 10px;
+    left: 10px;
+    padding: 0.6rem 0.8rem;
+    width: 180px;
+  }
+  .mapCompass {
+    bottom: 10px;
+    right: 10px;
+    width: 65px;
+    height: 65px;
+    padding: 4px;
   }
 }

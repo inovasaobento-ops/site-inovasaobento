@@ -30,32 +30,32 @@ export default function MapComponent() {
         scrollWheelZoom: false,
       });
 
-      // CartoDB Dark Matter tile layer for a beautiful dark dashboard theme
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+      // CartoDB Dark Matter tile layer without labels for a clean vector-like design
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png", {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: "abcd",
         maxZoom: 20,
+        className: styles.greenMapTiles,
       }).addTo(map);
 
-      // Custom divIcon markers styled with neon glows for dark mode
-      const createCustomIcon = (label: string, color: string) => {
+      // Custom divIcon markers styled as clean circular badges matching the illustrated map style
+      const createCustomIcon = (label: string, bgColor: string, borderColor: string, textColor: string) => {
         return L.divIcon({
           className: styles.customMarker,
           html: `
-            <div style="background-color: ${color}; border-color: #030f07; box-shadow: 0 0 15px ${color};" class="${styles.markerPin}">
+            <div style="background-color: ${bgColor}; border: 3px solid ${borderColor}; color: ${textColor};" class="${styles.markerCircle}">
               <span class="${styles.markerLabel}">${label}</span>
             </div>
-            <div style="border-top-color: ${color};" class="${styles.markerArrow}"></div>
-            <div style="background-color: ${color};" class="${styles.markerPulse}"></div>
+            <div style="background-color: ${borderColor};" class="${styles.markerPulse}"></div>
           `,
-          iconSize: [36, 42],
-          iconAnchor: [18, 42],
-          popupAnchor: [0, -42],
+          iconSize: [44, 44],
+          iconAnchor: [22, 22],
+          popupAnchor: [0, -22],
         });
       };
 
-      const startIcon = createCustomIcon("Início", "#8fc95d"); // Neon Green
-      const endIcon = createCustomIcon("Ruínas", "#9ae193");    // Soft Light Green
+      const startIcon = createCustomIcon("Início", "#f4f4ea", "#0b4728", "#0b4728");
+      const endIcon = createCustomIcon("Ruínas", "#0b4728", "#f4f4ea", "#f4f4ea");
 
       // Add Start Marker
       L.marker(startCoords, { icon: startIcon })
@@ -79,7 +79,7 @@ export default function MapComponent() {
           </div>
         `);
 
-      // Draw path with dual polylines to create a neon glowing line effect!
+      // Draw path with dual polylines to match the reference map's solid and ground paths!
       const pathPoints: [number, number][] = [
         startCoords,
         [-7.9029, -34.8665], 
@@ -87,20 +87,19 @@ export default function MapComponent() {
         endCoords,
       ];
 
-      // Outer glow line
+      // Outer path (ground path in amber)
       L.polyline(pathPoints, {
-        color: "#8fc95d",
-        weight: 8,
-        opacity: 0.2,
+        color: "#d97706",
+        weight: 6,
+        opacity: 0.9,
         lineJoin: "round",
       }).addTo(map);
 
-      // Inner dashed line
+      // Inner path (solid path in white)
       L.polyline(pathPoints, {
-        color: "#8fc95d",
-        weight: 3.5,
-        dashArray: "6, 6",
-        opacity: 0.9,
+        color: "#ffffff",
+        weight: 2.5,
+        opacity: 0.95,
         lineJoin: "round",
       }).addTo(map);
 

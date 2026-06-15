@@ -121,6 +121,54 @@ export default function MapSection() {
           {/* Right panel: Interactive Map */}
           <div className={styles.mapContainer}>
             <DynamicMap />
+
+            {/* Custom Map Legend overlay matching the reference design */}
+            <div className={styles.mapLegend}>
+              <div className={styles.legendHeader}>LEGENDA DA ROTA</div>
+              <div className={styles.legendBody}>
+                <div className={styles.legendItem}>
+                  <span className={`${styles.legendColor} ${styles.legendStart}`}></span>
+                  <span>Partida (Jaguarana)</span>
+                </div>
+                <div className={styles.legendItem}>
+                  <span className={`${styles.legendColor} ${styles.legendEnd}`}></span>
+                  <span>Chegada (Ruínas)</span>
+                </div>
+                <div className={styles.legendItem}>
+                  <span className={`${styles.legendColor} ${styles.legendPath}`}></span>
+                  <span>Trilha Ecológica (940m)</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Custom Compass Rose overlay matching the reference design */}
+            <div className={styles.mapCompass}>
+              <svg viewBox="0 0 100 100" className={styles.compassSvg}>
+                <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(244, 244, 234, 0.2)" strokeWidth="1.5" />
+                <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(244, 244, 234, 0.1)" strokeDasharray="2 2" />
+                
+                {/* North-South Points */}
+                <polygon points="50,15 46,50 50,47" fill="var(--color-bege)" />
+                <polygon points="50,15 54,50 50,47" fill="var(--color-taupe)" />
+                <polygon points="50,85 46,50 50,53" fill="var(--color-taupe)" />
+                <polygon points="50,85 54,50 50,53" fill="var(--color-bege)" />
+                
+                {/* West-East Points */}
+                <polygon points="15,50 50,46 47,50" fill="var(--color-taupe)" />
+                <polygon points="15,50 50,54 47,50" fill="var(--color-bege)" />
+                <polygon points="85,50 50,46 53,50" fill="var(--color-bege)" />
+                <polygon points="85,50 50,54 53,50" fill="var(--color-taupe)" />
+                
+                {/* Center circle */}
+                <circle cx="50" cy="50" r="4" fill="var(--color-forest-green)" stroke="var(--color-bege)" strokeWidth="1.5" />
+                
+                {/* Cardinal Direction Text Labels */}
+                <text x="50" y="11" fontSize="10" fontWeight="900" textAnchor="middle" fill="var(--color-bege)">N</text>
+                <text x="50" y="97" fontSize="10" fontWeight="900" textAnchor="middle" fill="var(--color-bege)">S</text>
+                <text x="7" y="53" fontSize="10" fontWeight="900" textAnchor="middle" fill="var(--color-bege)">W</text>
+                <text x="93" y="53" fontSize="10" fontWeight="900" textAnchor="middle" fill="var(--color-bege)">E</text>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
