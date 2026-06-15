@@ -38,9 +38,9 @@ export default function Home() {
           {/* Menu Desktop */}
           <nav className={styles.nav}>
             <a href="#sobre" className={styles.navLink}>Sobre</a>
+            <a href="#programacao" className={styles.navLink}>Programação</a>
             <a href="#dashboard" className={styles.navLink}>Telemetria</a>
             <a href="#pilares" className={styles.navLink}>Pilares</a>
-            <a href="#programacao" className={styles.navLink}>Programação</a>
             <a href="#localizacao" className={styles.navLink}>Como Chegar</a>
           </nav>
           
@@ -52,9 +52,9 @@ export default function Home() {
           {/* Menu Mobile Dropdown */}
           <nav className={styles.mobileNav}>
             <a href="#sobre" className={styles.mobileNavLink}>Sobre</a>
+            <a href="#programacao" className={styles.mobileNavLink}>Programação</a>
             <a href="#dashboard" className={styles.mobileNavLink}>Telemetria</a>
             <a href="#pilares" className={styles.mobileNavLink}>Pilares</a>
-            <a href="#programacao" className={styles.mobileNavLink}>Programação</a>
             <a href="#localizacao" className={styles.mobileNavLink}>Como Chegar</a>
             <a href="#inscricao" className={styles.mobileNavActionBtn}>
               Increver-se

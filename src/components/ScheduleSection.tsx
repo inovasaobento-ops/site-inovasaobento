@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import styles from "./ScheduleSection.module.css";
 
 interface EventLocation {
@@ -70,13 +71,14 @@ export default function ScheduleSection() {
           {/* Cabeçalho da Seção com Ícone de Seta Pixelado do Mockup */}
           <div className={styles.titleRow}>
             <div className={styles.titleWrapper}>
-              <svg className={styles.pixelArrow} width="48" height="24" viewBox="0 0 60 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="4" y="10" width="32" height="4" fill="#0b4728" />
-                <rect x="36" y="8" width="4" height="8" fill="#0b4728" />
-                <rect x="40" y="6" width="4" height="12" fill="#0b4728" />
-                <rect x="44" y="4" width="4" height="16" fill="#0b4728" />
-                <rect x="48" y="10" width="4" height="4" fill="#0b4728" />
-              </svg>
+              <Image 
+                src="/assets/icon-arrow.svg" 
+                alt="Seta" 
+                width={75} 
+                height={24} 
+                className={styles.pixelArrow}
+                priority
+              />
               <h2 className={styles.sectionTitle}>PROGRAMAÇÃO</h2>
             </div>
           </div>
@@ -98,10 +100,13 @@ export default function ScheduleSection() {
                 {/* Lado Direito: Pin de Localização e Texto Stacked */}
                 <div className={styles.itemLocation}>
                   <div className={styles.locationWrapper}>
-                    <svg className={styles.locationPin} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                      <circle cx="12" cy="10" r="3"/>
-                    </svg>
+                    <Image 
+                      src="/assets/icon-pin.svg" 
+                      alt="Pin" 
+                      width={26} 
+                      height={32} 
+                      className={styles.locationPin}
+                    />
                     <div className={styles.locationText}>
                       <span className={styles.locType}>{item.location.type}</span>
                       <span className={styles.locName}>{item.location.name}</span>
