@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 import ScheduleSection from "@/components/ScheduleSection";
 import MapSection from "@/components/MapSection";
 import RegistrationForm from "@/components/RegistrationForm";
-import { Compass, ShieldCheck, Heart, Award, ArrowDown, Users, Activity, Layers, Calendar } from "lucide-react";
+import { Compass, ShieldCheck, Heart, Award } from "lucide-react";
 
 export default function Home() {
   return (

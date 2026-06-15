@@ -68,12 +68,11 @@ export default function RegistrationForm() {
       setEmail("");
       setPhone("");
       setActivity("all");
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Registration error:", err);
       setStatus("error");
-      setErrorMessage(
-        err.message || "Ocorreu um erro ao processar sua inscrição. Tente novamente mais tarde."
-      );
+      const msg = err instanceof Error ? err.message : "Ocorreu um erro ao processar sua inscrição. Tente novamente mais tarde.";
+      setErrorMessage(msg);
     } finally {
       setLoading(false);
     }

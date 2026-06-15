@@ -52,7 +52,7 @@
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: var(--color-lime-green);
+  color: var(--color-forest-green); /* Verde Escuro */
   text-transform: uppercase;
   display: block;
   margin-bottom: 0.5rem;
@@ -61,11 +61,12 @@
 .title {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: var(--color-text-dark);
+  color: var(--color-forest-green); /* Verde Escuro */
 }
 
 .description {
-  color: var(--color-text-muted);
+  color: var(--color-forest-green); /* Verde Escuro */
+  opacity: 0.9;
 }
 
 /* Layout */
@@ -85,21 +86,21 @@
 
 /* Card Styling (Glassmorphism Dashboard style) */
 .card {
-  background-color: var(--color-bg-card);
+  background-color: rgba(255, 255, 255, 0.18); /* Light translucent white background for high contrast */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: var(--radius-md);
-  box-shadow: var(--glow-panel);
-  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 32px rgba(11, 71, 40, 0.1);
+  border: 1px solid rgba(11, 71, 40, 0.15);
   overflow: hidden;
   transition: var(--transition-normal);
 }
 
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(143, 201, 93, 0.08);
-  border-color: rgba(143, 201, 93, 0.25);
-  background-color: var(--color-bg-card-hover);
+  box-shadow: 0 8px 30px rgba(11, 71, 40, 0.15);
+  border-color: rgba(11, 71, 40, 0.25);
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 .iconHeader {
@@ -107,20 +108,20 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1.2rem;
-  color: var(--color-text-dark);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--color-forest-green); /* Verde Escuro */
+  border-bottom: 1px solid rgba(11, 71, 40, 0.12);
 }
 
 .startIconBg {
-  background-color: rgba(143, 201, 93, 0.1);
-  color: var(--color-lime-green);
-  border-bottom: 1px solid rgba(143, 201, 93, 0.15);
+  background-color: rgba(11, 71, 40, 0.05);
+  color: var(--color-forest-green);
+  border-bottom: 1px solid rgba(11, 71, 40, 0.12);
 }
 
 .endIconBg {
-  background-color: rgba(11, 71, 40, 0.2);
-  color: var(--color-pastel-green);
-  border-bottom: 1px solid rgba(105, 181, 119, 0.15);
+  background-color: rgba(11, 71, 40, 0.1);
+  color: var(--color-forest-green);
+  border-bottom: 1px solid rgba(11, 71, 40, 0.12);
 }
 
 .iconHeader h3 {
@@ -138,20 +139,24 @@
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.15rem;
-  color: var(--color-text-dark);
+  color: var(--color-forest-green); /* Verde Escuro */
   margin-bottom: 0.3rem;
 }
 
 .addressDetails {
   font-size: 0.9rem;
-  color: var(--color-text-muted);
+  color: var(--color-forest-green); /* Verde Escuro */
   margin-bottom: 0.8rem;
   font-family: monospace;
 }
 
+.addressDetails strong {
+  color: var(--color-forest-green);
+}
+
 .helperText {
   font-size: 0.85rem;
-  color: var(--color-text-muted);
+  color: var(--color-forest-green); /* Verde Escuro */
   line-height: 1.5;
   margin-bottom: 1.2rem;
 }
@@ -179,25 +184,28 @@
 
 .mapBtn {
   background-color: var(--color-lime-green);
-  color: var(--color-text-light);
+  color: var(--color-forest-green); /* Verde Escuro para alto contraste */
   border: 1px solid var(--color-lime-green);
-  box-shadow: var(--glow-lime);
+  box-shadow: 0 4px 12px rgba(143, 201, 93, 0.15);
+  font-weight: 700;
 }
 
 .mapBtn:hover {
   background-color: var(--color-pastel-green);
   border-color: var(--color-pastel-green);
-  box-shadow: var(--glow-lime-hover);
+  box-shadow: 0 6px 15px rgba(143, 201, 93, 0.25);
+  color: var(--color-forest-green);
 }
 
 .wazeBtn {
   background-color: transparent;
-  color: var(--color-lime-green);
-  border: 1.5px solid var(--color-lime-green);
+  color: var(--color-forest-green); /* Verde Escuro */
+  border: 1.5px solid var(--color-forest-green);
+  font-weight: 700;
 }
 
 .wazeBtn:hover {
-  background-color: rgba(143, 201, 93, 0.08);
+  background-color: rgba(11, 71, 40, 0.08);
 }
 
 /* Trail Indicator (Green Neon Bar) */
@@ -205,15 +213,15 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  background-color: rgba(143, 201, 93, 0.06);
-  border: 1px solid rgba(143, 201, 93, 0.2);
+  background-color: rgba(11, 71, 40, 0.05); /* Lighter translucent forest green */
+  border: 1px solid rgba(11, 71, 40, 0.15);
   border-radius: var(--radius-md);
   padding: 1rem 1.2rem;
-  color: var(--color-lime-green);
+  color: var(--color-forest-green); /* Verde Escuro */
 }
 
 .compassIcon {
-  color: var(--color-lime-green);
+  color: var(--color-forest-green); /* Verde Escuro */
   flex-shrink: 0;
   animation: rotateCompass 8s linear infinite;
 }
@@ -231,13 +239,13 @@
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 0.1rem;
-  color: var(--color-text-dark);
+  color: var(--color-forest-green); /* Verde Escuro */
 }
 
 .trailIndicator p {
   font-size: 0.85rem;
   margin: 0;
-  color: var(--color-text-muted);
+  color: var(--color-forest-green); /* Verde Escuro */
 }
 
 /* Map Container */

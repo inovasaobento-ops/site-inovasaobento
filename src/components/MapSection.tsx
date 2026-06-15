@@ -35,8 +35,7 @@ export default function MapSection() {
           <span className={styles.tagline}>COMO CHEGAR</span>
           <h2 className={styles.title}>Localização da Trilha e do Evento</h2>
           <p className={styles.description}>
-            Nossa jornada ecológica começa em Paulista e termina no coração histórico de Abreu e Lima. 
-            Veja a rota de 940m no mapa abaixo.
+            Nossa jornada ecológica e cultural começa no Forno da Cal as margens do Rio Timbó e termina nas ruínas da Igreja de São Bento coração histórico de Abreu e Lima. Veja a rota de 940m no mapa abaixo.
           </p>
         </div>
 
