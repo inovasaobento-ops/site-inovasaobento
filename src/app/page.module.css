@@ -40,6 +40,8 @@
 }
 
 .logoImg {
+  height: 40px;
+  width: auto;
   object-fit: contain;
   transition: var(--transition-fast);
 }
@@ -769,6 +771,10 @@
     top: 0.75rem;
     padding: 0 1.5rem;
     border-radius: 20px;
+  }
+  
+  .logoImg {
+    height: 32px;
   }
   
   .nav {

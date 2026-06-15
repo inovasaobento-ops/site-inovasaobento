@@ -18,8 +18,8 @@ export default function Home() {
               <Image 
                 src="/assets/logo-horizontal.svg" 
                 alt="Inova São Bento Logo" 
-                width={200} 
-                height={50}
+                width={218} 
+                height={40}
                 className={styles.logoImg}
                 priority
               />
