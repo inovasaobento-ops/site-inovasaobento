@@ -39,11 +39,17 @@
   align-items: center;
 }
 
+.logoWrapper a {
+  display: flex;
+  align-items: center;
+}
+
 .logoImg {
   height: 40px;
   width: auto;
   object-fit: contain;
   transition: var(--transition-fast);
+  transform: translateY(2.5px); /* Ajuste visual para centralizar verticalmente devido ao viewBox do SVG */
 }
 
 .logoImg:hover {
@@ -775,6 +781,7 @@
   
   .logoImg {
     height: 32px;
+    transform: translateY(1.5px);
   }
   
   .nav {
