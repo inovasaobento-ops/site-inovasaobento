@@ -39,7 +39,7 @@ export default function Home() {
           <nav className={styles.nav}>
             <a href="#sobre" className={styles.navLink}>Sobre</a>
             <a href="#programacao" className={styles.navLink}>Programação</a>
-            <a href="#dashboard" className={styles.navLink}>Telemetria</a>
+            <a href="#impacto" className={styles.navLink}>Impacto</a>
             <a href="#pilares" className={styles.navLink}>Pilares</a>
             <a href="#localizacao" className={styles.navLink}>Como Chegar</a>
           </nav>
@@ -53,7 +53,7 @@ export default function Home() {
           <nav className={styles.mobileNav}>
             <a href="#sobre" className={styles.mobileNavLink}>Sobre</a>
             <a href="#programacao" className={styles.mobileNavLink}>Programação</a>
-            <a href="#dashboard" className={styles.mobileNavLink}>Telemetria</a>
+            <a href="#impacto" className={styles.mobileNavLink}>Impacto</a>
             <a href="#pilares" className={styles.mobileNavLink}>Pilares</a>
             <a href="#localizacao" className={styles.mobileNavLink}>Como Chegar</a>
             <a href="#inscricao" className={styles.mobileNavActionBtn}>
@@ -138,7 +138,7 @@ export default function Home() {
           <div className={styles.aboutLayout}>
             
             {/* Left: Interactive Dashboard Monitor (Sonar Style) */}
-            <div className={styles.aboutVisual} id="dashboard">
+            <div className={styles.aboutVisual} id="impacto">
               <div className={styles.dashboardWidget}>
                 <div className={styles.widgetHeader}>
                   <div className={styles.widgetIndicator}></div>
@@ -328,7 +328,69 @@ export default function Home() {
       {/* 7. Registration Section (Form) */}
       <RegistrationForm />
 
-      {/* 8. Footer */}
+      {/* 8. Partners & Sponsors Section (Patrocínio e Apoio) - Sem link no menu */}
+      <section className={styles.sponsorsSection}>
+        <div className="container">
+          <div className={styles.sponsorsHeader}>
+            <span className={styles.sponsorsTagline}>PARCEIROS</span>
+            <h2 className={styles.sponsorsTitle}>Patrocínio e Apoio</h2>
+            <p className={styles.sponsorsDescription}>
+              Marcas, instituições e iniciativas que apoiam ativamente a inovação ecológica e cultural do Inova São Bento.
+            </p>
+          </div>
+
+          {/* Patrocinadores (3) */}
+          <div className={styles.patrocinadoresGroup}>
+            <h3 className={styles.groupTitle}>Patrocinadores Master</h3>
+            <div className={styles.patrocinadoresGrid}>
+              <div className={styles.sponsorCard}>
+                <div className={styles.sponsorLogoPlaceholder}>
+                  <span className={styles.sponsorLogoText}>EPEC</span>
+                  <span className={styles.sponsorSubtext}>Economia Criativa</span>
+                </div>
+              </div>
+              <div className={styles.sponsorCard}>
+                <div className={styles.sponsorLogoPlaceholder}>
+                  <span className={styles.sponsorLogoText}>LITORAL</span>
+                  <span className={styles.sponsorSubtext}>Norte Sustentável</span>
+                </div>
+              </div>
+              <div className={styles.sponsorCard}>
+                <div className={styles.sponsorLogoPlaceholder}>
+                  <span className={styles.sponsorLogoText}>INOVATECH</span>
+                  <span className={styles.sponsorSubtext}>Abreu e Lima</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Apoios (10) */}
+          <div className={styles.apoiosGroup}>
+            <h3 className={styles.groupTitle}>Apoio e Cooperação</h3>
+            <div className={styles.apoiosGrid}>
+              {[
+                { name: "PRESERVA", desc: "Eco Turismo" },
+                { name: "SÃO BENTO", desc: "Coletivo Cultural" },
+                { name: "JAGUARIBE", desc: "Assoc. Moradores" },
+                { name: "AFOXÉ", desc: "Grupo Cultural" },
+                { name: "TIMBÓ", desc: "Ação Ecológica" },
+                { name: "CRIATIVA", desc: "Lab Aberto" },
+                { name: "JAGUARANA", desc: "Trilhas PE" },
+                { name: "FORNO DA CAL", desc: "Patrimônio" },
+                { name: "TECNOLOGIA", desc: "Soluções Livres" },
+                { name: "JUVENTUDES", desc: "Fórum Abreu" }
+              ].map((apoio, index) => (
+                <div key={index} className={styles.apoioCard}>
+                  <span className={styles.apoioName}>{apoio.name}</span>
+                  <span className={styles.apoioDesc}>{apoio.desc}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. Footer */}
       <footer className={styles.footer}>
         <div className="container">
           <div className={styles.footerTop}>
@@ -350,7 +412,7 @@ export default function Home() {
               <h4 className={styles.footerTitle}>Mapa do Site</h4>
               <ul className={styles.linksList}>
                 <li><a href="#sobre">O Projeto</a></li>
-                <li><a href="#sobre">Telemetria</a></li>
+                <li><a href="#impacto">Impacto</a></li>
                 <li><a href="#pilares">Pilares</a></li>
                 <li><a href="#programacao">Cronograma</a></li>
                 <li><a href="#localizacao">Como Chegar</a></li>
