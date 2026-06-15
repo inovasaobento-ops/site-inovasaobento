@@ -100,6 +100,18 @@
   box-shadow: 0 4px 15px rgba(143, 201, 93, 0.3);
 }
 
+.menuToggleInput {
+  display: none;
+}
+
+.hamburgerButton {
+  display: none;
+}
+
+.mobileNav {
+  display: none;
+}
+
 /* 2. Hero Section (Video Background & Layout Illustrator) */
 .heroSection {
   min-height: 100vh;
@@ -755,12 +767,113 @@
     height: 64px;
     width: calc(100% - 1.5rem);
     top: 0.75rem;
-    padding: 0 1.2rem;
+    padding: 0 1.5rem;
     border-radius: 20px;
   }
   
   .nav {
     display: none; /* Hide standard nav on mobile */
+  }
+  
+  .navActionBtn {
+    display: none; /* Hide standard button on mobile */
+  }
+  
+  .hamburgerButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 16px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  .hamburgerButton span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-forest-green); /* Verde escuro */
+    border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  }
+  
+  /* Hamburger to X Animations */
+  .menuToggleInput:checked ~ .hamburgerButton span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  
+  .menuToggleInput:checked ~ .hamburgerButton span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menuToggleInput:checked ~ .hamburgerButton span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  
+  /* Mobile Navigation Dropdown */
+  .mobileNav {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    width: 100%;
+    background-color: rgba(244, 244, 234, 0.96); /* Bege oficial com 96% opacidade */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+    z-index: 999;
+    
+    /* Animation states */
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .menuToggleInput:checked ~ .mobileNav {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  
+  .mobileNavLink {
+    font-family: var(--font-source-code), monospace;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-forest-green);
+    padding: 0.6rem 0.5rem;
+    border-bottom: 1px solid rgba(11, 71, 40, 0.08);
+    transition: var(--transition-fast);
+  }
+  
+  .mobileNavLink:hover {
+    color: var(--color-lime-green);
+    padding-left: 8px;
+  }
+  
+  .mobileNavActionBtn {
+    background-color: var(--color-lime-green);
+    color: var(--color-forest-green);
+    font-family: var(--font-source-code), monospace;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 0.8rem;
+    text-align: center;
+    border-radius: 30px;
+    margin-top: 0.5rem;
+    transition: var(--transition-normal);
+    box-shadow: 0 4px 12px rgba(143, 201, 93, 0.2);
+  }
+  
+  .mobileNavActionBtn:hover {
+    background-color: var(--color-pastel-green);
+    box-shadow: 0 6px 15px rgba(143, 201, 93, 0.3);
   }
   
   .heroSection {

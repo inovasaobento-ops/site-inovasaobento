@@ -26,6 +26,16 @@ export default function Home() {
             </a>
           </div>
           
+          {/* Checkbox Hack para Menu Hamburguer Mobile */}
+          <input type="checkbox" id="menuToggle" className={styles.menuToggleInput} />
+          
+          <label htmlFor="menuToggle" className={styles.hamburgerButton}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+          
+          {/* Menu Desktop */}
           <nav className={styles.nav}>
             <a href="#sobre" className={styles.navLink}>Sobre</a>
             <a href="#dashboard" className={styles.navLink}>Telemetria</a>
@@ -34,9 +44,22 @@ export default function Home() {
             <a href="#localizacao" className={styles.navLink}>Como Chegar</a>
           </nav>
           
+          {/* Botão Desktop */}
           <a href="#inscricao" className={styles.navActionBtn}>
             Increver-se
           </a>
+          
+          {/* Menu Mobile Dropdown */}
+          <nav className={styles.mobileNav}>
+            <a href="#sobre" className={styles.mobileNavLink}>Sobre</a>
+            <a href="#dashboard" className={styles.mobileNavLink}>Telemetria</a>
+            <a href="#pilares" className={styles.mobileNavLink}>Pilares</a>
+            <a href="#programacao" className={styles.mobileNavLink}>Programação</a>
+            <a href="#localizacao" className={styles.mobileNavLink}>Como Chegar</a>
+            <a href="#inscricao" className={styles.mobileNavActionBtn}>
+              Increver-se
+            </a>
+          </nav>
         </div>
       </header>
 
