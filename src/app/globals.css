@@ -1,7 +1,15 @@
-/* Design System - Inova São Bento (Estilo Dark Dashboard "Sonar") */
+@font-face {
+  font-family: 'Chalkduster';
+  src: url('/Fonts/Chalkduster.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 html, :root {
   --font-heading: var(--font-source-code), Courier, monospace !important;
   --font-body: var(--font-source-code), Courier, monospace !important;
+  --font-chalkduster-family: var(--font-chalkduster), 'Chalkduster', cursive, sans-serif;
 }
 
 :root {

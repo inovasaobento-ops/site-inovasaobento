@@ -54,6 +54,12 @@ const sourceCode = localFont({
   display: "swap",
 });
 
+const chalkduster = localFont({
+  src: "../../Fonts/Chalkduster.ttf",
+  variable: "--font-chalkduster",
+  display: "swap",
+});
+
 export const viewport = {
   width: "device-width",
   initialScale: 1.0,
@@ -84,7 +90,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${outfit.variable} ${inter.variable} ${sourceCode.variable}`}>
+    <html lang="pt-BR" className={`${outfit.variable} ${inter.variable} ${sourceCode.variable} ${chalkduster.variable}`}>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="alternate icon" href="/favicon.png" type="image/png" />

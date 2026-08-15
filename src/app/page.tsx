@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 import ScheduleSection from "@/components/ScheduleSection";
+import IdeasSection from "@/components/IdeasSection";
 import MapSection from "@/components/MapSection";
 import RegistrationForm from "@/components/RegistrationForm";
 import { Compass, ShieldCheck, Heart, Award } from "lucide-react";
@@ -39,7 +40,7 @@ export default function Home() {
           <nav className={styles.nav}>
             <a href="#sobre" className={styles.navLink}>Sobre</a>
             <a href="#programacao" className={styles.navLink}>Programação</a>
-            <a href="#impacto" className={styles.navLink}>Impacto</a>
+            <a href="#ideias" className={styles.navLink}>Ideias</a>
             <a href="#pilares" className={styles.navLink}>Pilares</a>
             <a href="#localizacao" className={styles.navLink}>Como Chegar</a>
           </nav>
@@ -53,7 +54,7 @@ export default function Home() {
           <nav className={styles.mobileNav}>
             <a href="#sobre" className={styles.mobileNavLink}>Sobre</a>
             <a href="#programacao" className={styles.mobileNavLink}>Programação</a>
-            <a href="#impacto" className={styles.mobileNavLink}>Impacto</a>
+            <a href="#ideias" className={styles.mobileNavLink}>Ideias</a>
             <a href="#pilares" className={styles.mobileNavLink}>Pilares</a>
             <a href="#localizacao" className={styles.mobileNavLink}>Como Chegar</a>
             <a href="#inscricao" className={styles.mobileNavActionBtn}>
@@ -132,7 +133,10 @@ export default function Home() {
       {/* 3. Schedule Section (Programação) - Segunda Seção do Site */}
       <ScheduleSection />
 
-      {/* 4. About Section (Sobre) & Dashboard Integration */}
+      {/* 4. Ideas Section (Ideias em Post-it) - Seção Ideias */}
+      <IdeasSection />
+
+      {/* 5. About Section (Sobre) & Dashboard Integration */}
       <section id="sobre" className={styles.aboutSection}>
         <div className="container">
           <div className={styles.aboutLayout}>
@@ -412,9 +416,9 @@ export default function Home() {
               <h4 className={styles.footerTitle}>Mapa do Site</h4>
               <ul className={styles.linksList}>
                 <li><a href="#sobre">O Projeto</a></li>
-                <li><a href="#impacto">Impacto</a></li>
-                <li><a href="#pilares">Pilares</a></li>
                 <li><a href="#programacao">Cronograma</a></li>
+                <li><a href="#ideias">Ideias</a></li>
+                <li><a href="#pilares">Pilares</a></li>
                 <li><a href="#localizacao">Como Chegar</a></li>
                 <li><a href="#inscricao">Inscrições</a></li>
               </ul>

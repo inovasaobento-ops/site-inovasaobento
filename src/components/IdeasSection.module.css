@@ -1,0 +1,435 @@
+.section {
+  background-color: var(--color-bege);
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0;
+  border-bottom: 1px solid rgba(11, 71, 40, 0.15);
+}
+
+/* Grain texture overlay specific to the beige section background */
+.section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/sobreposicao-grain.png');
+  background-repeat: repeat;
+  opacity: 0.8; /* Subtle granulado overlay */
+  pointer-events: none;
+  z-index: 1;
+}
+
+.containerBox {
+  position: relative;
+  z-index: 2;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Header Row with Pixel Arrow & Title */
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(11, 71, 40, 0.15);
+  margin-bottom: 2rem;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+  min-width: 280px;
+}
+
+.pixelArrow {
+  color: var(--color-forest-green);
+  flex-shrink: 0;
+}
+
+.sectionTitle {
+  font-family: var(--font-source-code), monospace;
+  font-size: 1.75rem;
+  font-weight: 900; /* Black / ExtraBold */
+  color: var(--color-lime-green); /* Verde limão oficial */
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+/* Google Form Action Button */
+.headerActionGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.googleFormBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: var(--color-forest-green);
+  color: var(--color-bege);
+  font-family: var(--font-source-code), monospace;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 0.8rem 1.4rem;
+  border-radius: 30px;
+  border: 1px solid var(--color-forest-green);
+  text-decoration: none;
+  transition: var(--transition-normal);
+  box-shadow: 0 4px 14px rgba(11, 71, 40, 0.25);
+  cursor: pointer;
+}
+
+.googleFormBtn:hover {
+  background-color: var(--color-lime-green);
+  color: var(--color-forest-green);
+  border-color: var(--color-lime-green);
+  box-shadow: 0 6px 18px rgba(143, 201, 93, 0.35);
+  transform: translateY(-2px);
+}
+
+.addDirectBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: transparent;
+  color: var(--color-forest-green);
+  font-family: var(--font-source-code), monospace;
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 0.75rem 1.2rem;
+  border-radius: 30px;
+  border: 1.5px solid var(--color-forest-green);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.addDirectBtn:hover {
+  background-color: rgba(11, 71, 40, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Live badge indicator */
+.liveBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-source-code), monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-forest-green);
+  background-color: rgba(143, 201, 93, 0.25);
+  border: 1px solid rgba(11, 71, 40, 0.2);
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-forest-green);
+  border-radius: 50%;
+  animation: pulseDot 1.5s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.5; }
+}
+
+/* Scroll Container for 3 rows of 4 post-its */
+.scrollContainer {
+  max-height: 650px; /* Accommodates ~3 rows of post-its visible */
+  overflow-y: auto;
+  padding-right: 1.2rem;
+  margin-top: 1rem;
+  
+  /* Scrollbar adjustments for Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-forest-green) rgba(11, 71, 40, 0.08);
+}
+
+/* Custom Webkit Scrollbar matching reference design bar */
+.scrollContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollContainer::-webkit-scrollbar-track {
+  background: rgba(11, 71, 40, 0.08);
+  border-radius: 6px;
+}
+
+.scrollContainer::-webkit-scrollbar-thumb {
+  background: var(--color-forest-green);
+  border-radius: 6px;
+}
+
+.scrollContainer::-webkit-scrollbar-thumb:hover {
+  background: var(--color-lime-green);
+}
+
+/* Post-it Grid (4 columns desktop) */
+.postitGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+/* Post-it Card Item */
+.postitCard {
+  background-image: url('/assets/postit.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  padding: 2.8rem 1.6rem 1.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  position: relative;
+  user-select: text;
+}
+
+.postitCard:hover {
+  transform: translateY(-4px) rotate(-1deg) scale(1.02);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+  z-index: 5;
+}
+
+/* Handwritten text inside Post-it using Chalkduster font */
+.postitContent {
+  font-family: var(--font-chalkduster-family), 'Chalkduster', cursive, sans-serif;
+  color: #0b4728; /* Dark forest green ink */
+  font-size: 1.05rem;
+  line-height: 1.3;
+  font-weight: 500;
+  word-break: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}
+
+.postitAuthor {
+  font-family: var(--font-chalkduster-family), 'Chalkduster', cursive, sans-serif;
+  color: #0b4728;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: right;
+  margin-top: 0.8rem;
+  padding-right: 0.4rem;
+}
+
+/* Bottom CTA Row */
+.bottomCtaRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px dashed rgba(11, 71, 40, 0.2);
+  flex-wrap: wrap;
+}
+
+.formFooterLink {
+  font-family: var(--font-source-code), monospace;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-forest-green);
+  text-decoration: underline;
+  text-decoration-color: rgba(11, 71, 40, 0.4);
+  transition: var(--transition-fast);
+}
+
+.formFooterLink:hover {
+  color: var(--color-lime-green);
+  text-decoration-color: var(--color-lime-green);
+}
+
+/* Inline Direct Submission Modal / Card overlay */
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(3, 15, 7, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1.5rem;
+}
+
+.modalContent {
+  background-color: var(--color-bege);
+  border: 2px solid var(--color-forest-green);
+  border-radius: 20px;
+  padding: 2.5rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.modalTitle {
+  font-family: var(--font-source-code), monospace;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--color-forest-green);
+  margin-bottom: 0.5rem;
+}
+
+.modalDesc {
+  font-family: var(--font-source-code), monospace;
+  font-size: 0.9rem;
+  color: var(--color-forest-green);
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modalInput, .modalTextarea {
+  font-family: var(--font-chalkduster-family), 'Chalkduster', var(--font-source-code), sans-serif;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1.5px solid rgba(11, 71, 40, 0.3);
+  border-radius: 10px;
+  color: #0b4728;
+  font-size: 1rem;
+}
+
+.modalInput:focus, .modalTextarea:focus {
+  outline: none;
+  border-color: var(--color-forest-green);
+  box-shadow: 0 0 10px rgba(11, 71, 40, 0.2);
+}
+
+.modalTextarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.modalCloseBtn {
+  background: transparent;
+  border: none;
+  color: var(--color-forest-green);
+  font-family: var(--font-source-code), monospace;
+  font-weight: 700;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+}
+
+.modalSubmitBtn {
+  background-color: var(--color-forest-green);
+  color: var(--color-bege);
+  border: none;
+  font-family: var(--font-source-code), monospace;
+  font-weight: 800;
+  padding: 0.7rem 1.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.modalSubmitBtn:hover {
+  background-color: var(--color-lime-green);
+  color: var(--color-forest-green);
+}
+
+/* RESPONSIVE DESIGN FOR MOBILE & TABLET */
+@media (max-width: 1024px) {
+  .postitGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 0;
+  }
+
+  .sectionTitle {
+    font-size: 1.35rem;
+  }
+
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .postitGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .postitCard {
+    padding: 2.2rem 1.2rem 1.2rem 1.2rem;
+  }
+
+  .postitContent {
+    font-size: 0.95rem;
+    -webkit-line-clamp: 5;
+  }
+
+  .postitAuthor {
+    font-size: 0.85rem;
+  }
+
+  .scrollContainer {
+    max-height: 540px;
+    padding-right: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .postitGrid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .sectionTitle {
+    font-size: 1.2rem;
+  }
+
+  .headerActionGroup {
+    width: 100%;
+  }
+
+  .googleFormBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
