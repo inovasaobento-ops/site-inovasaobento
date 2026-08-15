@@ -193,7 +193,7 @@
   background-repeat: no-repeat;
   aspect-ratio: 1 / 1;
   width: 100%;
-  padding: 2.8rem 1.6rem 1.6rem 1.6rem;
+  padding: 3.2rem 2.2rem 2rem 2.2rem; /* Generous breathing room around edges */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -213,9 +213,10 @@
 .postitContent {
   font-family: var(--font-chalkduster-family), 'Chalkduster', cursive, sans-serif;
   color: #0b4728; /* Dark forest green ink */
-  font-size: 1.05rem;
-  line-height: 1.3;
+  font-size: 0.86rem; /* Proportional & legible size */
+  line-height: 1.4;
   font-weight: 500;
+  letter-spacing: 0.2px;
   word-break: break-word;
   overflow: hidden;
   display: -webkit-box;
@@ -226,11 +227,11 @@
 .postitAuthor {
   font-family: var(--font-chalkduster-family), 'Chalkduster', cursive, sans-serif;
   color: #0b4728;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.78rem;
+  font-weight: 700;
   text-align: right;
-  margin-top: 0.8rem;
-  padding-right: 0.4rem;
+  margin-top: 0.6rem;
+  padding-right: 0.2rem;
 }
 
 /* Bottom CTA Row */
@@ -395,16 +396,17 @@
   }
 
   .postitCard {
-    padding: 2.2rem 1.2rem 1.2rem 1.2rem;
+    padding: 2.8rem 1.6rem 1.4rem 1.6rem;
   }
 
   .postitContent {
-    font-size: 0.95rem;
-    -webkit-line-clamp: 5;
+    font-size: 0.82rem;
+    line-height: 1.35;
+    -webkit-line-clamp: 6;
   }
 
   .postitAuthor {
-    font-size: 0.85rem;
+    font-size: 0.74rem;
   }
 
   .scrollContainer {
