@@ -283,8 +283,7 @@ export default function Home() {
               </div>
               <h3 className={styles.pillarTitle}>Inovação Tecnológica</h3>
               <p className={styles.pillarText}>
-                Utilização de inteligência de dados, tecnologia limpa e soluções abertas para enfrentar 
-                desafios socioambientais locais.
+                Utilização de inteligência de dados, economia criativa e soluções abertas para ressignificar espaços históricos e ambientais locais subutilizados.
               </p>
             </div>
 
