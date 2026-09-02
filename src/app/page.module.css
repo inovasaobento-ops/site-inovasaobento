@@ -510,56 +510,50 @@
   flex-direction: column;
 }
 
-.sectionTitle {
+.aboutContent :global(.sectionTagline),
+.aboutContent span {
+  color: var(--color-forest-green);
+  font-family: var(--font-source-code), monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.aboutContent .sectionTitle {
+  font-family: var(--font-source-code), monospace;
   font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--color-forest-green); /* Verde Escuro */
   margin-bottom: 1.5rem;
 }
 
 .aboutText {
-  color: var(--color-text-muted);
+  color: var(--color-forest-green); /* Verde Escuro */
+  font-family: var(--font-source-code), monospace;
   font-size: 1.05rem;
   line-height: 1.7;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+.aboutText strong {
+  color: var(--color-forest-green);
+  font-weight: 800;
 }
 
 .aboutText a {
-  color: var(--color-lime-green);
+  color: var(--color-forest-green);
+  font-weight: 800;
   text-decoration: underline;
-  text-decoration-color: rgba(143, 201, 93, 0.3);
+  text-decoration-color: rgba(11, 71, 40, 0.4);
+  transition: var(--transition-fast);
 }
 
 .aboutText a:hover {
-  color: var(--color-pastel-green);
-}
-
-.aboutStats {
-  display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 2rem;
-}
-
-.statItem {
-  display: flex;
-  flex-direction: column;
-}
-
-.statNum {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 800;
   color: var(--color-lime-green);
-  line-height: 1;
-  margin-bottom: 0.25rem;
-}
-
-.statLabel {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 /* 4. Pillars Section */

@@ -235,29 +235,11 @@ export default function Home() {
               <span className={styles.sectionTagline}>O PROJETO</span>
               <h2 className={styles.sectionTitle}>Conectando Passado, Presente e Futuro</h2>
               <p className={styles.aboutText}>
-                O **Inova São Bento** é uma iniciativa transformadora da **[epec (Escola Pernambucana de Economia Criativa)](https://epec.art.br)**. 
-                Focada em desenvolvimento territorial, a proposta converte marcos históricos como as Ruínas de São Bento (1660) 
-                e o Forno da Cal em laboratórios vivos para soluções ecológicas e empreendedoras.
+                O <strong>Inova São Bento</strong> é uma iniciativa transformadora da <strong><a href="https://epec.art.br" target="_blank" rel="noopener noreferrer">epec (Escola Pernambucana de Economia Criativa)</a></strong>. Focada em desenvolvimento territorial, a proposta converte marcos históricos como as Ruínas de São Bento (1660) e o Forno da Cal em laboratórios vivos de soluções inovadoras e criativas para ressignificar espaços históricos e ambientais locais subutilizados.
               </p>
               <p className={styles.aboutText}>
-                Por meio do IdeaThon, jovens e moradores desenvolvem soluções baseadas em tecnologia aberta para impulsionar 
-                a valorização ecológica, a salvaguarda patrimonial e o fomento ao turismo sustentável na região.
+                Por meio do IdeaThon, jovens e moradores desenvolvem soluções baseadas em criatividade e tecnologia aberta para impulsionar a valorização ecológica, a salvaguarda patrimonial e o fomento ao turismo sustentável na região.
               </p>
-
-              <div className={styles.aboutStats}>
-                <div className={styles.statItem}>
-                  <span className={styles.statNum}>1660</span>
-                  <span className={styles.statLabel}>Fundação do Sítio</span>
-                </div>
-                <div className={styles.statItem}>
-                  <span className={styles.statNum}>940m</span>
-                  <span className={styles.statLabel}>Trilha Cultural</span>
-                </div>
-                <div className={styles.statItem}>
-                  <span className={styles.statNum}>EPEC</span>
-                  <span className={styles.statLabel}>Realização epec.art.br</span>
-                </div>
-              </div>
             </div>
 
           </div>
