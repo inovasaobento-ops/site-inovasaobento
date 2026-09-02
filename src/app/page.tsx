@@ -382,7 +382,7 @@ export default function Home() {
             {/* Column 1: Brand & Desc */}
             <div className={styles.footerBrand}>
               <Image 
-                src="/assets/logo-horizontal.svg" 
+                src="/assets/logo-horizontal-clara.svg" 
                 alt="Inova São Bento Logo Footer" 
                 width={218} 
                 height={40}
