@@ -53,8 +53,8 @@ export default function ScheduleSection() {
     },
     {
       time: "15:00 - 16:00",
-      title: "Apresentação e gravação audiovisual youtube, DJ set cultural Barreto Selector",
-      location: { type: "Ruína", name: "Forno da Cal" }
+      title: 'Apresentação e gravação audiovisual youtube, DJ set cultural Barreto Selector "Ruínas de São Bento"',
+      location: { type: "Ruína", name: "São Bento" }
     },
     {
       time: "16:00 - 17:00",
