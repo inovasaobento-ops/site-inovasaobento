@@ -398,12 +398,13 @@ export default function Home() {
       <footer className={styles.footer}>
         <div className="container">
           <div className={styles.footerTop}>
+            {/* Column 1: Brand & Desc */}
             <div className={styles.footerBrand}>
               <Image 
                 src="/assets/logo-horizontal.svg" 
                 alt="Inova São Bento Logo Footer" 
-                width={200} 
-                height={55}
+                width={218} 
+                height={40}
                 className={styles.footerLogo}
               />
               <p className={styles.brandDesc}>
@@ -412,6 +413,7 @@ export default function Home() {
               </p>
             </div>
             
+            {/* Column 2: Sitemap Links */}
             <div className={styles.footerLinks}>
               <h4 className={styles.footerTitle}>Mapa do Site</h4>
               <ul className={styles.linksList}>
@@ -424,12 +426,23 @@ export default function Home() {
               </ul>
             </div>
 
+            {/* Column 3: Realização & White Epec Logo */}
             <div className={styles.footerContact}>
-              <h4 className={styles.footerTitle}>Parceiros e Realização</h4>
-              <p className={styles.contactText}>
-                <strong>Realização:</strong> <a href="https://epec.art.br" target="_blank" rel="noopener noreferrer" className={styles.epecLink}>epec (Escola Pernambucana de Economia Criativa)</a><br />
-                <strong>Cooperação:</strong> Lideranças Juvenis e Empreendedores do Litoral Norte PE
-              </p>
+              <h4 className={styles.footerTitle}>Realização:</h4>
+              <a 
+                href="https://epec.art.br" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.epecLogoLink}
+              >
+                <Image 
+                  src="/Logotipo epec branco.svg" 
+                  alt="Escola Pernambucana de Economia Criativa - epec" 
+                  width={230} 
+                  height={58}
+                  className={styles.epecLogoImg}
+                />
+              </a>
               <p className={styles.contactDetails}>
                 Paulista / Abreu e Lima - PE, Brasil
               </p>
@@ -438,7 +451,9 @@ export default function Home() {
 
           <div className={styles.footerBottom}>
             <p>&copy; {new Date().getFullYear()} Inova São Bento. Todos os direitos reservados. Fomento à Economia Criativa.</p>
-            <p className={styles.footerCredits}>Realizado pela epec | Acesse: <a href="https://epec.art.br" target="_blank" rel="noopener noreferrer" className={styles.epecLink}>epec.art.br</a></p>
+            <p className={styles.footerCredits}>
+              Realizado pela epec | Acesse: <a href="https://epec.art.br" target="_blank" rel="noopener noreferrer" className={styles.epecLink}>epec.art.br</a>
+            </p>
           </div>
         </div>
       </footer>
