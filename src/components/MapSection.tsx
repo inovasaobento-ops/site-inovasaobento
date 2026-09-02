@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import styles from "./MapSection.module.css";
-import { MapPin, Navigation, Compass, ExternalLink } from "lucide-react";
+import { MapPin, Navigation, Compass, ExternalLink, Map as MapIcon } from "lucide-react";
 
 // Load MapComponent dynamically to avoid "window is not defined" SSR errors
 const DynamicMap = dynamic(() => import("./MapComponent"), {
@@ -16,9 +16,14 @@ const DynamicMap = dynamic(() => import("./MapComponent"), {
   ),
 });
 
+const GOOGLE_MAPS_LINK = "https://maps.app.goo.gl/ZVqP541KDSZJBTGV8";
+const GOOGLE_MAPS_EMBED = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.688229618058!2d-34.8656322!3d-7.9037675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab15097ab16705%3A0x9bea04f45a8ab97d!2sRu%C3%ADnas%20do%20Forno%20de%20Cal!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr";
+
 export default function MapSection() {
-  const handleOpenGoogleMaps = (lat: number, lon: number) => {
-    window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lon}`, "_blank");
+  const [activeTab, setActiveTab] = useState<"google" | "trilha">("google");
+
+  const handleOpenGoogleMaps = () => {
+    window.open(GOOGLE_MAPS_LINK, "_blank");
   };
 
   const handleOpenWaze = (lat: number, lon: number) => {
@@ -35,7 +40,7 @@ export default function MapSection() {
           <span className={styles.tagline}>COMO CHEGAR</span>
           <h2 className={styles.title}>Localização da Trilha e do Evento</h2>
           <p className={styles.description}>
-            Nossa jornada ecológica e cultural começa no Forno da Cal as margens do Rio Timbó e termina nas ruínas da Igreja de São Bento coração histórico de Abreu e Lima. Veja a rota de 940m no mapa abaixo.
+            Nossa jornada ecológica e cultural começa no Forno da Cal às margens do Rio Timbó e termina nas ruínas da Igreja de São Bento, coração histórico de Abreu e Lima. Veja a localização no mapa abaixo.
           </p>
         </div>
 
@@ -60,7 +65,7 @@ export default function MapSection() {
                 </p>
                 <div className={styles.btnGroup}>
                   <button 
-                    onClick={() => handleOpenGoogleMaps(-7.9030625, -34.8634375)}
+                    onClick={handleOpenGoogleMaps}
                     className={styles.mapBtn}
                   >
                     <Navigation size={14} /> Google Maps
@@ -101,7 +106,7 @@ export default function MapSection() {
                 </p>
                 <div className={styles.btnGroup}>
                   <button 
-                    onClick={() => handleOpenGoogleMaps(-7.90222, -34.87194)}
+                    onClick={handleOpenGoogleMaps}
                     className={styles.mapBtn}
                   >
                     <Navigation size={14} /> Google Maps
@@ -118,57 +123,70 @@ export default function MapSection() {
 
           </div>
 
-          {/* Right panel: Interactive Map */}
+          {/* Right panel: Embedded Google Map & Map Controls */}
           <div className={styles.mapContainer}>
-            <DynamicMap />
+            {/* View Mode Selector Tabs */}
+            <div className={styles.mapTabBar}>
+              <button 
+                className={`${styles.tabBtn} ${activeTab === "google" ? styles.tabBtnActive : ""}`}
+                onClick={() => setActiveTab("google")}
+              >
+                <MapPin size={15} /> Google Maps Oficial
+              </button>
+              <button 
+                className={`${styles.tabBtn} ${activeTab === "trilha" ? styles.tabBtnActive : ""}`}
+                onClick={() => setActiveTab("trilha")}
+              >
+                <MapIcon size={15} /> Rota da Trilha (940m)
+              </button>
+              <a 
+                href={GOOGLE_MAPS_LINK} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.openDirectBtn}
+              >
+                <span>Abrir App</span>
+                <ExternalLink size={13} />
+              </a>
+            </div>
 
-            {/* Custom Map Legend overlay matching the reference design */}
-            <div className={styles.mapLegend}>
-              <div className={styles.legendHeader}>LEGENDA DA ROTA</div>
-              <div className={styles.legendBody}>
-                <div className={styles.legendItem}>
-                  <span className={`${styles.legendColor} ${styles.legendStart}`}></span>
-                  <span>Partida (Jaguarana)</span>
-                </div>
-                <div className={styles.legendItem}>
-                  <span className={`${styles.legendColor} ${styles.legendEnd}`}></span>
-                  <span>Chegada (Ruínas)</span>
-                </div>
-                <div className={styles.legendItem}>
-                  <span className={`${styles.legendColor} ${styles.legendPath}`}></span>
-                  <span>Trilha Ecológica (940m)</span>
-                </div>
+            {/* Google Maps View */}
+            {activeTab === "google" ? (
+              <div className={styles.googleEmbedWrapper}>
+                <iframe
+                  src={GOOGLE_MAPS_EMBED}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, minHeight: "480px", width: "100%" }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Mapa de Localização Google Maps - Ruínas do Forno de Cal"
+                ></iframe>
               </div>
-            </div>
-
-            {/* Custom Compass Rose overlay matching the reference design */}
-            <div className={styles.mapCompass}>
-              <svg viewBox="0 0 100 100" className={styles.compassSvg}>
-                <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(244, 244, 234, 0.2)" strokeWidth="1.5" />
-                <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(244, 244, 234, 0.1)" strokeDasharray="2 2" />
-                
-                {/* North-South Points */}
-                <polygon points="50,15 46,50 50,47" fill="var(--color-bege)" />
-                <polygon points="50,15 54,50 50,47" fill="var(--color-taupe)" />
-                <polygon points="50,85 46,50 50,53" fill="var(--color-taupe)" />
-                <polygon points="50,85 54,50 50,53" fill="var(--color-bege)" />
-                
-                {/* West-East Points */}
-                <polygon points="15,50 50,46 47,50" fill="var(--color-taupe)" />
-                <polygon points="15,50 50,54 47,50" fill="var(--color-bege)" />
-                <polygon points="85,50 50,46 53,50" fill="var(--color-bege)" />
-                <polygon points="85,50 50,54 53,50" fill="var(--color-taupe)" />
-                
-                {/* Center circle */}
-                <circle cx="50" cy="50" r="4" fill="var(--color-forest-green)" stroke="var(--color-bege)" strokeWidth="1.5" />
-                
-                {/* Cardinal Direction Text Labels */}
-                <text x="50" y="11" fontSize="10" fontWeight="900" textAnchor="middle" fill="var(--color-bege)">N</text>
-                <text x="50" y="97" fontSize="10" fontWeight="900" textAnchor="middle" fill="var(--color-bege)">S</text>
-                <text x="7" y="53" fontSize="10" fontWeight="900" textAnchor="middle" fill="var(--color-bege)">W</text>
-                <text x="93" y="53" fontSize="10" fontWeight="900" textAnchor="middle" fill="var(--color-bege)">E</text>
-              </svg>
-            </div>
+            ) : (
+              <>
+                <DynamicMap />
+                {/* Custom Map Legend overlay matching the reference design */}
+                <div className={styles.mapLegend}>
+                  <div className={styles.legendHeader}>LEGENDA DA ROTA</div>
+                  <div className={styles.legendBody}>
+                    <div className={styles.legendItem}>
+                      <span className={`${styles.legendColor} ${styles.legendStart}`}></span>
+                      <span>Partida (Jaguarana)</span>
+                    </div>
+                    <div className={styles.legendItem}>
+                      <span className={`${styles.legendColor} ${styles.legendEnd}`}></span>
+                      <span>Chegada (Ruínas)</span>
+                    </div>
+                    <div className={styles.legendItem}>
+                      <span className={`${styles.legendColor} ${styles.legendPath}`}></span>
+                      <span>Trilha Ecológica (940m)</span>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
