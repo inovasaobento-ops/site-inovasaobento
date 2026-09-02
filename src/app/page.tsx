@@ -318,7 +318,7 @@ export default function Home() {
               </div>
               <h3 className={styles.pillarTitle}>Economia Criativa</h3>
               <p className={styles.pillarText}>
-                Capacitação empreendedora pela epec e apoio ao artesanato, maracatu, afoxé e capoeira da nossa região.
+                Capacitação empreendedora pela epec e apoio ao artesanato, maracatu, ciranda e capoeira da nossa região.
               </p>
             </div>
           </div>
