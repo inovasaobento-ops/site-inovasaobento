@@ -564,54 +564,91 @@
 
 /* 4. Pillars Section */
 .pillarsSection {
-  background-color: var(--color-bg-dark);
+  background-color: var(--color-bege);
   padding: 6rem 0;
   position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(11, 71, 40, 0.15);
+}
+
+.pillarsSection::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/sobreposicao-grain.png');
+  background-repeat: repeat;
+  opacity: 0.8; /* Granulado de sobreposição */
+  pointer-events: none;
+  z-index: 1;
 }
 
 .pillarsHeader {
   text-align: center;
   max-width: 700px;
   margin: 0 auto 4rem auto;
+  position: relative;
+  z-index: 2;
+}
+
+.pillarsHeader :global(.sectionTagline),
+.pillarsHeader span {
+  color: var(--color-forest-green); /* Verde Escuro */
+  font-family: var(--font-source-code), monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 .sectionTitleInverse {
+  font-family: var(--font-source-code), monospace;
   font-size: 2.5rem;
-  color: var(--color-text-dark);
+  font-weight: 900;
+  color: var(--color-lime-green); /* Verde Limão Neon alternado como na Programação */
   margin-bottom: 1rem;
 }
 
 .pillarsSubtitle {
-  color: var(--color-text-muted);
+  color: var(--color-forest-green); /* Verde Escuro */
+  font-family: var(--font-source-code), monospace;
   font-size: 1.1rem;
+  opacity: 0.95;
 }
 
 .pillarsGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .pillarCard {
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background-color: rgba(255, 255, 255, 0.5); /* Vidro fosco claro no fundo bege */
+  border: 1px solid rgba(11, 71, 40, 0.15);
   padding: 2.5rem 1.8rem;
   border-radius: var(--radius-md);
   transition: var(--transition-normal);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(11, 71, 40, 0.05);
 }
 
 .pillarCard:hover {
-  background-color: rgba(255, 255, 255, 0.04);
-  border-color: var(--color-lime-green);
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(11, 71, 40, 0.3);
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 30px rgba(11, 71, 40, 0.12);
 }
 
 .pillarIconWrapper {
-  background-color: rgba(143, 201, 93, 0.15);
-  color: var(--color-lime-green);
+  background-color: rgba(11, 71, 40, 0.08);
+  color: var(--color-forest-green);
   width: 48px;
   height: 48px;
   border-radius: var(--radius-sm);
@@ -620,27 +657,30 @@
   justify-content: center;
   margin-bottom: 1.5rem;
   transition: var(--transition-fast);
-  border: 1px solid rgba(143, 201, 93, 0.2);
+  border: 1px solid rgba(11, 71, 40, 0.2);
 }
 
 .pillarCard:hover .pillarIconWrapper {
   background-color: var(--color-lime-green);
-  color: var(--color-text-light);
+  color: var(--color-forest-green);
   transform: scale(1.1) rotate(5deg);
-  box-shadow: var(--glow-lime);
+  box-shadow: 0 0 15px rgba(143, 201, 93, 0.4);
 }
 
 .pillarTitle {
-  color: var(--color-text-dark);
+  color: var(--color-forest-green); /* Verde Escuro */
+  font-family: var(--font-source-code), monospace;
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 0.8rem;
 }
 
 .pillarText {
-  color: var(--color-text-muted);
+  color: var(--color-forest-green); /* Verde Escuro */
+  font-family: var(--font-source-code), monospace;
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.65;
+  opacity: 0.9;
 }
 
 /* 8. Footer */
