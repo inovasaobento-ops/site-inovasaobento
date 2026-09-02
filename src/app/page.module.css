@@ -998,10 +998,13 @@
 /* ==========================================================================
    8. Sponsors and Support Section
    ========================================================================== */
+/* ==========================================================================
+   8. Sponsors and Support Section
+   ========================================================================== */
 .sponsorsSection {
-  background-color: var(--color-bg-dark);
+  background-color: var(--color-bege);
   padding: 6rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(11, 71, 40, 0.15);
   position: relative;
   overflow: hidden;
 }
@@ -1015,7 +1018,7 @@
   height: 100%;
   background-image: url('/assets/sobreposicao-grain.png');
   background-repeat: repeat;
-  opacity: 0.03;
+  opacity: 0.8; /* Granulado de sobreposição */
   pointer-events: none;
   z-index: 1;
 }
@@ -1029,26 +1032,30 @@
 }
 
 .sponsorsTagline {
-  font-family: var(--font-heading);
+  font-family: var(--font-source-code), monospace;
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: var(--color-lime-green);
+  color: var(--color-forest-green); /* Verde Escuro */
   text-transform: uppercase;
   display: block;
   margin-bottom: 0.5rem;
 }
 
 .sponsorsTitle {
+  font-family: var(--font-source-code), monospace;
   font-size: 2.5rem;
+  font-weight: 900;
   margin-bottom: 1rem;
-  color: var(--color-text-dark);
+  color: var(--color-lime-green); /* Verde Limão Neon alternado como na Programação */
 }
 
 .sponsorsDescription {
-  color: var(--color-text-muted);
+  color: var(--color-forest-green); /* Verde Escuro */
+  font-family: var(--font-source-code), monospace;
   font-size: 1.05rem;
   line-height: 1.6;
+  opacity: 0.9;
 }
 
 .patrocinadoresGroup {
@@ -1058,10 +1065,10 @@
 }
 
 .groupTitle {
-  font-family: var(--font-heading);
+  font-family: var(--font-source-code), monospace;
   font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--color-pastel-green);
+  font-weight: 800;
+  color: var(--color-forest-green); /* Verde Escuro */
   margin-bottom: 1.5rem;
   text-align: center;
   letter-spacing: 1px;
@@ -1075,10 +1082,10 @@
 }
 
 .sponsorCard {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.5); /* Vidro fosco claro no fundo bege */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(11, 71, 40, 0.15);
   border-radius: var(--radius-md);
   padding: 2.5rem 1.5rem;
   display: flex;
@@ -1087,13 +1094,14 @@
   min-height: 130px;
   transition: var(--transition-normal);
   text-align: center;
+  box-shadow: 0 8px 24px rgba(11, 71, 40, 0.05);
 }
 
 .sponsorCard:hover {
   transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.04);
-  border-color: var(--color-lime-green);
-  box-shadow: 0 0 20px rgba(143, 201, 93, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(11, 71, 40, 0.3);
+  box-shadow: 0 12px 30px rgba(11, 71, 40, 0.12);
 }
 
 .sponsorLogoPlaceholder {
@@ -1104,21 +1112,22 @@
 }
 
 .sponsorLogoText {
-  font-family: var(--font-heading);
+  font-family: var(--font-source-code), monospace;
   font-size: 1.6rem;
   font-weight: 900;
-  color: var(--color-bege);
+  color: var(--color-forest-green); /* Verde Escuro */
   letter-spacing: 3px;
   line-height: 1.2;
 }
 
 .sponsorSubtext {
-  font-family: var(--font-heading);
+  font-family: var(--font-source-code), monospace;
   font-size: 0.75rem;
-  color: var(--color-text-muted);
+  color: var(--color-forest-green); /* Verde Escuro */
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-top: 0.35rem;
+  opacity: 0.85;
 }
 
 .apoiosGroup {
@@ -1133,10 +1142,10 @@
 }
 
 .apoioCard {
-  background: rgba(255, 255, 255, 0.015);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.5); /* Vidro fosco claro no fundo bege */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(11, 71, 40, 0.15);
   border-radius: var(--radius-sm);
   padding: 1.2rem 0.8rem;
   display: flex;
@@ -1146,30 +1155,32 @@
   min-height: 80px;
   transition: var(--transition-normal);
   text-align: center;
+  box-shadow: 0 4px 15px rgba(11, 71, 40, 0.04);
 }
 
 .apoioCard:hover {
   transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.85);
   border-color: var(--color-forest-green);
-  box-shadow: 0 0 15px rgba(11, 71, 40, 0.2);
+  box-shadow: 0 8px 20px rgba(11, 71, 40, 0.1);
 }
 
 .apoioName {
-  font-family: var(--font-heading);
+  font-family: var(--font-source-code), monospace;
   font-size: 0.85rem;
   font-weight: 800;
-  color: var(--color-bege);
+  color: var(--color-forest-green); /* Verde Escuro */
   letter-spacing: 1px;
 }
 
 .apoioDesc {
-  font-family: var(--font-heading);
+  font-family: var(--font-source-code), monospace;
   font-size: 0.65rem;
-  color: var(--color-text-muted);
+  color: var(--color-forest-green); /* Verde Escuro */
   margin-top: 0.2rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  opacity: 0.85;
 }
 
 /* Responsiveness overrides inside media queries */
